@@ -149,6 +149,32 @@ export default async function decorate(block) {
     });
   }
 
+  // add icons to nav-tools links
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const iconMap = { Search: 'search', 'Find A Dealer': 'location', 'Find Tires': 'tire' };
+    navTools.querySelectorAll('a').forEach((link) => {
+      const iconName = iconMap[link.textContent.trim()];
+      if (iconName) {
+        const icon = document.createElement('span');
+        icon.className = 'icon';
+        icon.innerHTML = `<img data-icon-name="${iconName}" src="/icons/${iconName}.svg" alt="${link.textContent.trim()}" loading="lazy">`;
+        link.prepend(icon);
+      }
+    });
+  }
+
+  // mobile secondary links — shown inside expanded menu
+  const mobileLinks = document.createElement('div');
+  mobileLinks.className = 'nav-mobile-links';
+  mobileLinks.innerHTML = `
+    <a href="/content/index"><span class="icon"><img src="/icons/search.svg" alt="" loading="lazy"></span>Customer Support</a>
+    <a href="/content/index"><span class="icon"><img src="/icons/search.svg" alt="" loading="lazy"></span>Special Offers</a>
+    <a href="/content/index"><span class="icon"><img src="/icons/tire.svg" alt="" loading="lazy"></span>Tire Decision Guide</a>
+    <a href="/content/index"><span class="icon"><img src="/icons/location.svg" alt="" loading="lazy"></span>Find A Dealer</a>
+    <a href="/content/index"><span class="icon"><img src="/icons/tire.svg" alt="" loading="lazy"></span>Find Tires</a>`;
+  nav.append(mobileLinks);
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
