@@ -296,8 +296,8 @@ header nav .nav-sections .nav-drop::after {
   display: inline-block;
   position: absolute;
   right: 4px;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
+  top: 24px;
+  transform: rotate(45deg);
   width: 8px;
   height: 8px;
   border: 2px solid currentcolor;
@@ -306,7 +306,8 @@ header nav .nav-sections .nav-drop::after {
 }
 
 header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-  transform: translateY(-50%) rotate(135deg);
+  top: 22px;
+  transform: rotate(135deg);
 }
 
 /* Mobile: sub-menus hidden by default */
