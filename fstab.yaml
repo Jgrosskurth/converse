@@ -1,2 +1,4 @@
 mountpoints:
-  /: https://da.live/#/Jgrosskurth/bridgestone
+  /:
+    url: https://content.da.live/Jgrosskurth/bridgestone/
+    type: markup
