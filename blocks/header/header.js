@@ -149,15 +149,34 @@ export default async function decorate(block) {
     });
   }
 
+  // add icons to nav-tools links (use 'nav-icon' class to avoid AEM decorateIcons)
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const iconMap = { Search: 'search', 'Find A Dealer': 'location', 'Find Tires': 'tire' };
+    navTools.querySelectorAll('a').forEach((link) => {
+      const iconName = iconMap[link.textContent.trim()];
+      if (iconName) {
+        const img = document.createElement('img');
+        img.className = 'nav-icon';
+        img.src = `/icons/${iconName}.svg`;
+        img.alt = '';
+        img.loading = 'lazy';
+        img.width = 22;
+        img.height = 22;
+        link.prepend(img);
+      }
+    });
+  }
+
   // mobile secondary links — shown inside expanded menu
   const mobileLinks = document.createElement('div');
   mobileLinks.className = 'nav-mobile-links';
   mobileLinks.innerHTML = `
-    <a href="/content/index"><span class="icon"><img src="/icons/search.svg" alt="" loading="lazy"></span>Customer Support</a>
-    <a href="/content/index"><span class="icon"><img src="/icons/search.svg" alt="" loading="lazy"></span>Special Offers</a>
-    <a href="/content/index"><span class="icon"><img src="/icons/tire.svg" alt="" loading="lazy"></span>Tire Decision Guide</a>
-    <a href="/content/index"><span class="icon"><img src="/icons/location.svg" alt="" loading="lazy"></span>Find A Dealer</a>
-    <a href="/content/index"><span class="icon"><img src="/icons/tire.svg" alt="" loading="lazy"></span>Find Tires</a>`;
+    <a href="/content/index"><img class="nav-icon" src="/icons/search.svg" alt="" loading="lazy" width="20" height="20">Customer Support</a>
+    <a href="/content/index"><img class="nav-icon" src="/icons/search.svg" alt="" loading="lazy" width="20" height="20">Special Offers</a>
+    <a href="/content/index"><img class="nav-icon" src="/icons/tire.svg" alt="" loading="lazy" width="20" height="20">Tire Decision Guide</a>
+    <a href="/content/index"><img class="nav-icon" src="/icons/location.svg" alt="" loading="lazy" width="20" height="20">Find A Dealer</a>
+    <a href="/content/index"><img class="nav-icon" src="/icons/tire.svg" alt="" loading="lazy" width="20" height="20">Find Tires</a>`;
   nav.append(mobileLinks);
 
   // hamburger for mobile
