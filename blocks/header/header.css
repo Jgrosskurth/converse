@@ -271,17 +271,66 @@ header nav .nav-sections ul {
   font-weight: 400;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 400;
+/* Mobile: top-level items — large bold with bottom border */
+header nav .nav-sections .default-content-wrapper > ul {
+  margin: 0;
+  padding: 16px 0;
+}
+
+header nav .nav-sections .default-content-wrapper > ul > li {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-grey-border);
   text-transform: capitalize;
 }
 
-header nav .nav-sections ul > li > ul {
+/* Mobile: chevron arrow on nav-drop items */
+header nav .nav-sections .nav-drop {
+  position: relative;
+  cursor: pointer;
+}
+
+header nav .nav-sections .nav-drop::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentcolor;
+  border-width: 2px 2px 0 0;
+  transition: transform 0.2s ease;
+}
+
+header nav .nav-sections .nav-drop[aria-expanded='true']::after {
+  transform: translateY(-50%) rotate(135deg);
+}
+
+/* Mobile: sub-menus hidden by default */
+header nav .nav-sections .default-content-wrapper > ul > li > ul {
+  display: none;
   margin-top: 0;
 }
 
-header nav .nav-sections ul > li > ul > li {
+/* Mobile: sub-menus visible when expanded */
+header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+  display: block;
+  margin-top: 8px;
+  padding-bottom: 4px;
+}
+
+/* Mobile: sub-menu items — smaller, lighter */
+header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
+  font-size: var(--body-font-size-m);
   font-weight: 400;
+  padding: 10px 0;
+}
+
+header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+  color: var(--text-color);
 }
 
 @media (width >= 900px) {
@@ -300,19 +349,16 @@ header nav .nav-sections ul > li > ul > li {
     cursor: pointer;
   }
 
-  /* Arrow chevron — inline relative positioning */
+  /* Arrow chevron — inline relative positioning (desktop override) */
   header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
     position: relative;
+    right: auto;
     top: -1px;
     margin-left: 2px;
     transform: rotate(135deg);
     width: 5px;
     height: 5px;
-    border: 2px solid currentcolor;
     border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
@@ -330,6 +376,9 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: static;
+    font-size: 13.7px;
+    font-weight: 400;
+    padding: 0;
     padding-bottom: 4px;
     border-bottom: 3px solid transparent;
     transition: border-color var(--transition-base);
@@ -392,6 +441,8 @@ header nav .nav-sections ul > li > ul > li {
 /* ============================================================
    Tools — Search, Find A Dealer, Find Tires
    ============================================================ */
+
+/* stylelint-disable no-descending-specificity -- tools section after mobile nav sub-items */
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
@@ -454,3 +505,5 @@ header nav .nav-tools p {
     margin: 2px 0 0;
   }
 }
+
+/* stylelint-enable no-descending-specificity */
