@@ -490,7 +490,7 @@ main > .section:last-of-type > .default-content-wrapper a[href^="tel:"] {
   font-weight: 700;
 }
 
-main > .section:last-of-type > .default-content-wrapper > p:last-child a.button:any-link {
+.section.contact-cta .default-content-wrapper > p:last-child a.button:any-link {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--color-white);
@@ -498,7 +498,7 @@ main > .section:last-of-type > .default-content-wrapper > p:last-child a.button:
   font-size: var(--body-font-size-m);
 }
 
-main > .section:last-of-type > .default-content-wrapper > p:last-child a.button:hover {
+.section.contact-cta .default-content-wrapper > p:last-child a.button:hover {
   background-color: var(--color-red-hover);
   border-color: var(--color-red-hover);
 }

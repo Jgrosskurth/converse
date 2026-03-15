@@ -86,15 +86,15 @@
   border-color: var(--color-red-hover);
 }
 
-/* Additional CTAs = secondary (light gray bg, red outlined) */
+/* Additional CTAs = secondary (white bg, red outlined) */
 /* stylelint-disable no-descending-specificity -- secondary CTA after primary hover */
 .cards-category .cards-category-card-body > p:last-child > a:nth-child(n+2) {
-  background-color: var(--light-color);
+  background-color: var(--color-white);
   color: var(--color-black);
 }
 
 .cards-category .cards-category-card-body > p:last-child > a:nth-child(n+2):hover {
-  background-color: var(--color-grey-border);
+  background-color: var(--color-grey-light);
   border-color: var(--color-red-hover);
 }
 
