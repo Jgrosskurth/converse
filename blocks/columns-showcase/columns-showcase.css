@@ -102,7 +102,7 @@
 
 .columns-showcase a.button.secondary:hover,
 .columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child > a:nth-child(n+2):hover {
-  color: var(--color-red);
+  color: var(--color-red-link-hover);
   background-color: transparent;
   border-color: transparent;
 }

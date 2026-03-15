@@ -94,7 +94,7 @@
 }
 
 .cards-support .cards-support-card-body > p:last-child > a:nth-child(n+2):hover {
-  color: var(--color-red);
+  color: var(--color-red-link-hover);
   background-color: transparent;
   border-color: transparent;
 }
