@@ -182,9 +182,9 @@ export default async function decorate(block) {
       <a href="https://commercial.bridgestone.com/en-us/index">Commercial</a>
     </div>
     <div class="nav-utility-right">
-      <a href="/content/index">Customer Support</a>
-      <a href="/content/index">Special Offers</a>
-      <a href="/content/index">Tire Decision Guide</a>
+      <a href="/content/index"><img class="nav-utility-icon" src="/icons/chat.svg" alt="" loading="lazy" width="16" height="16">Customer Support</a>
+      <a href="/content/index"><img class="nav-utility-icon" src="/icons/tag.svg" alt="" loading="lazy" width="16" height="16">Special Offers</a>
+      <a href="/content/index"><img class="nav-utility-icon" src="/icons/help-circle.svg" alt="" loading="lazy" width="16" height="16">Tire Decision Guide</a>
     </div>
   </div>`;
 
