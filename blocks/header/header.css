@@ -66,7 +66,7 @@
   }
 
   .nav-utility-right a:not(:last-child) {
-    border-right: 1px solid var(--accent-color);
+    border-right: none;
   }
 
   .nav-utility-icon {
@@ -87,7 +87,7 @@
     border: none;
     padding: 0 0 0 16px;
     margin-left: 8px;
-    border-left: 1px solid var(--accent-color);
+    border-left: none;
     cursor: pointer;
     opacity: 0.87;
   }
