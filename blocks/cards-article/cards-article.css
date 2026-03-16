@@ -130,6 +130,20 @@
   white-space: nowrap;
 }
 
+/* Left chevron on first Learn link */
+.cards-article-container > .default-content-wrapper:last-child > p:first-of-type a::before {
+  content: "\2039";
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Right chevron on last Learn link */
+.cards-article-container > .default-content-wrapper:last-child > p:last-of-type a::after {
+  content: "\203A";
+  font-size: 20px;
+  line-height: 1;
+}
+
 .cards-article-container > .default-content-wrapper:last-child a:any-link:hover {
   background-color: #333;
 }
@@ -141,15 +155,16 @@
 
   .cards-article-container > .default-content-wrapper:last-child {
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 24px;
     padding: 48px 0 16px;
   }
 
   .cards-article-container > .default-content-wrapper:last-child h6,
   .cards-article-container > .default-content-wrapper:last-child > p:only-child {
     font-size: 32px;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
+    text-align: center;
   }
 }
