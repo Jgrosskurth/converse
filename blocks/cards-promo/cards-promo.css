@@ -49,7 +49,7 @@
 
 .cards-promo .cards-promo-overlay-amount {
   font-family: var(--heading-font-family);
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 300;
   line-height: 1.2;
   color: var(--color-white);
@@ -57,7 +57,7 @@
 
 .cards-promo .cards-promo-overlay-subtitle {
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
   color: var(--color-white);
@@ -72,25 +72,33 @@
   flex-direction: column;
 }
 
-.cards-promo .cards-promo-card-body h4 {
+/* h6 = sub-label (e.g. "SPRING PROMOTION") */
+.cards-promo .cards-promo-card-body h6 {
   font-family: var(--heading-font-family);
-  font-weight: 300;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   margin-top: 0;
   margin-bottom: 4px;
   color: var(--text-color);
 }
 
+/* h5 = date line (e.g. "March 1–May 31, 2026") */
 .cards-promo .cards-promo-card-body h5 {
   font-family: var(--heading-font-family);
+  font-size: 18px;
   font-weight: 400;
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.cards-promo .cards-promo-card-body h6 {
+/* h4 = offer description text */
+.cards-promo .cards-promo-card-body h4 {
   font-family: var(--heading-font-family);
-  font-weight: 500;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
   margin-top: 0;
   margin-bottom: 4px;
   color: var(--text-color);
@@ -98,8 +106,8 @@
 
 .cards-promo .cards-promo-card-body p {
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.43;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--text-color);
 }
 
@@ -109,6 +117,7 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: auto;
+  padding-top: 12px;
 }
 
 /* All CTA links styled as pill buttons */
@@ -157,12 +166,35 @@
 
 /* stylelint-enable no-descending-specificity */
 
+/* Dark variant — card 2 with dark background */
+.cards-promo > ul > li.cards-promo-dark {
+  background-color: #424242;
+  border-color: #424242;
+}
+
+.cards-promo > ul > li.cards-promo-dark .cards-promo-card-body h6,
+.cards-promo > ul > li.cards-promo-dark .cards-promo-card-body h5,
+.cards-promo > ul > li.cards-promo-dark .cards-promo-card-body h4,
+.cards-promo > ul > li.cards-promo-dark .cards-promo-card-body p {
+  color: var(--color-white);
+}
+
+.cards-promo > ul > li.cards-promo-dark .cards-promo-card-body > p:last-child > a:first-child {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.cards-promo > ul > li.cards-promo-dark .cards-promo-card-body > p:last-child > a:first-child:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
 @media (width >= 900px) {
   .cards-promo > ul {
     grid-template-columns: repeat(3, 1fr);
   }
 
   .cards-promo .cards-promo-overlay-amount {
-    font-size: 32px;
+    font-size: 28px;
   }
 }

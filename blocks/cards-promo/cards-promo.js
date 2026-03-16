@@ -2,8 +2,9 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
   const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
+  [...block.children].forEach((row, index) => {
     const li = document.createElement('li');
+    if (index === 1) li.classList.add('cards-promo-dark');
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       const hasPicture = div.querySelector('picture');
