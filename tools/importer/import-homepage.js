@@ -2,150 +2,177 @@
 /* global WebImporter */
 
 // PARSER IMPORTS
-import heroBrandParser from './parsers/hero-brand.js';
-import cardsCategoryParser from './parsers/cards-category.js';
-import columnsFeatureParser from './parsers/columns-feature.js';
-import cardsBentoParser from './parsers/cards-bento.js';
-import cardsPromoParser from './parsers/cards-promo.js';
-import columnsShowcaseParser from './parsers/columns-showcase.js';
-import cardsArticleParser from './parsers/cards-article.js';
-import cardsSupportParser from './parsers/cards-support.js';
+import heroParser from './parsers/hero.js';
+import cardsParser from './parsers/cards.js';
+import columnsParser from './parsers/columns.js';
 
 // TRANSFORMER IMPORTS
-import cleanupTransformer from './transformers/bridgestone-cleanup.js';
-import sectionsTransformer from './transformers/bridgestone-sections.js';
+import cleanupTransformer from './transformers/academy-cleanup.js';
+import sectionsTransformer from './transformers/academy-sections.js';
 
 // PARSER REGISTRY
 const parsers = {
-  'hero-brand': heroBrandParser,
-  'cards-category': cardsCategoryParser,
-  'columns-feature': columnsFeatureParser,
-  'cards-bento': cardsBentoParser,
-  'cards-promo': cardsPromoParser,
-  'columns-showcase': columnsShowcaseParser,
-  'cards-article': cardsArticleParser,
-  'cards-support': cardsSupportParser,
+  'hero': heroParser,
+  'cards': cardsParser,
+  'columns': columnsParser,
 };
 
 // PAGE TEMPLATE CONFIGURATION
 const PAGE_TEMPLATE = {
   name: 'homepage',
-  description: 'Bridgestone Tires homepage with hero, product categories, promotions, and brand content',
-  urls: ['https://tires.bridgestone.com/'],
+  description: 'Academy Sports + Outdoors homepage with featured categories, promotions, and brand content',
+  urls: ['https://www.academy.com/'],
   blocks: [
     {
-      name: 'hero-brand',
-      instances: ['div.hero.aem-GridColumn'],
+      name: 'hero',
+      instances: [
+        'section[data-pos="2"] .slider-wrapper',
+        'section[data-pos="9"] #lets-play-ball .position-relative',
+      ],
     },
     {
-      name: 'cards-category',
-      instances: ['bsx-section#auto .column'],
+      name: 'cards',
+      instances: [
+        '.mt-section-item#mtFirstSection .grid-holder',
+        '.mt-section-item#mtSecondSection .grid-holder',
+        '.mt-section-item#mtThirdSection .grid-holder',
+        '.mt-section-item#mtFourthSection .grid-holder',
+        'section[data-pos="4"] #scrollable-container-run-month',
+        'section[data-pos="6"] .scrollable-container',
+        'section[data-pos="12"] #scrollable-container-work',
+        'section[data-pos="16"] .info-component-container',
+      ],
     },
     {
-      name: 'columns-feature',
-      instances: ['bsx-section#guide .content-card'],
-    },
-    {
-      name: 'cards-bento',
-      instances: ['bsx-section#why .bento-box'],
-    },
-    {
-      name: 'cards-promo',
-      instances: ['bsx-section#offers .column:has(.card)'],
-    },
-    {
-      name: 'columns-showcase',
-      instances: ['bsx-section#wrm .content-card'],
-    },
-    {
-      name: 'cards-article',
-      instances: ['bsx-section#resource:has(.separator) .column:has(.card)'],
-    },
-    {
-      name: 'cards-support',
-      instances: ['section:has(bsx-section#resource) ~ section bsx-grid:has(.card)'],
+      name: 'columns',
+      instances: [
+        'section[data-pos="11"] #workwear .flex-container',
+        'section[data-pos="13"] #fan-shop .flex-container',
+        'section[data-pos="14"]',
+        'section[data-pos="15"] #myacademy-rewards-3card',
+      ],
     },
   ],
   sections: [
     {
-      id: 'section-hero',
-      name: 'Hero',
-      selector: 'div.hero.aem-GridColumn',
-      style: null,
-      blocks: ['hero-brand'],
-      defaultContent: [],
-    },
-    {
-      id: 'section-subnav',
-      name: 'Subnav',
-      selector: 'div.subnav.aem-GridColumn',
-      style: null,
+      id: 'section-promo-banner',
+      name: 'Promotional Banner',
+      selector: '#buymore-banner',
+      style: 'dark',
       blocks: [],
-      defaultContent: ['bsx-subnav a'],
+      defaultContent: ['#buymore-banner a'],
     },
     {
-      id: 'section-categories',
-      name: 'Tire Categories',
-      selector: 'section:has(bsx-section#auto)',
+      id: 'section-hero-carousel',
+      name: 'Hero Carousel',
+      selector: 'section[data-pos="2"]',
       style: null,
-      blocks: ['cards-category'],
+      blocks: ['hero'],
       defaultContent: [],
     },
     {
-      id: 'section-guide',
-      name: 'Tire Decision Guide',
-      selector: 'section:has(bsx-section#guide)',
+      id: 'section-product-carousels',
+      name: 'Product Carousels',
+      selector: 'section[data-pos="3"]',
       style: null,
-      blocks: ['columns-feature'],
+      blocks: ['cards'],
       defaultContent: [],
     },
     {
-      id: 'section-welcome',
-      name: 'Welcome to Bridgestone',
-      selector: 'section:has(bsx-section#why)',
-      style: null,
-      blocks: ['cards-bento'],
-      defaultContent: ['#title-eb9241a6ce'],
-    },
-    {
-      id: 'section-offers',
-      name: 'Tire Offers and Promotions',
-      selector: 'section:has(bsx-section#offers)',
-      style: null,
-      blocks: ['cards-promo'],
-      defaultContent: ['#title-558866290d', 'bsx-section#offers .separator'],
-    },
-    {
-      id: 'section-wrm',
-      name: 'What Really Matters',
-      selector: 'section:has(bsx-section#wrm)',
-      style: null,
-      blocks: ['columns-showcase'],
+      id: 'section-running-shoes',
+      name: 'Running Shoes Brand Showcase',
+      selector: 'section[data-pos="4"]',
+      style: 'light-gray',
+      blocks: ['cards'],
       defaultContent: [],
     },
     {
-      id: 'section-whats-new',
-      name: 'Whats New',
-      selector: 'section:has(bsx-section#resource)',
+      id: 'section-new-finds',
+      name: 'New Finds / Color Drops',
+      selector: 'section[data-pos="6"]',
       style: null,
-      blocks: ['cards-article'],
-      defaultContent: ['#title-ecf2f7fd84', 'bsx-section#resource .separator'],
-    },
-    {
-      id: 'section-support',
-      name: 'Support Cards',
-      selector: ['section:has(bsx-section#resource) ~ section:has(.card)', 'section:nth-of-type(8)'],
-      style: null,
-      blocks: ['cards-support'],
+      blocks: ['cards'],
       defaultContent: [],
     },
     {
-      id: 'section-contact',
-      name: 'Contact Us',
-      selector: 'section:has(bsx-section#about)',
-      style: null,
+      id: 'section-soccer',
+      name: 'Soccer Promo',
+      selector: 'section[data-pos="7"]',
+      style: 'dark',
       blocks: [],
-      defaultContent: ['#title-7588a694d7', 'bsx-section#about .typography'],
+      defaultContent: ['section[data-pos="7"] a'],
+    },
+    {
+      id: 'section-clearance',
+      name: 'Clearance Banner',
+      selector: '#clearance-banner',
+      style: 'yellow',
+      blocks: [],
+      defaultContent: ['#clearance-banner a'],
+    },
+    {
+      id: 'section-baseball',
+      name: 'Baseball Promo',
+      selector: 'section[data-pos="9"]',
+      style: 'dark',
+      blocks: ['hero'],
+      defaultContent: [],
+    },
+    {
+      id: 'section-workwear-banner',
+      name: 'Workwear Banner',
+      selector: '#workwear-banner',
+      style: 'yellow',
+      blocks: [],
+      defaultContent: ['#workwear-banner a'],
+    },
+    {
+      id: 'section-workwear-deals',
+      name: 'Workwear Deals',
+      selector: 'section[data-pos="11"]',
+      style: null,
+      blocks: ['columns'],
+      defaultContent: [],
+    },
+    {
+      id: 'section-workwear-brands',
+      name: 'Workwear Brands',
+      selector: 'section[data-pos="12"]',
+      style: null,
+      blocks: ['cards'],
+      defaultContent: ['section[data-pos="12"] h3'],
+    },
+    {
+      id: 'section-fan-shop',
+      name: 'Trending for Fans',
+      selector: 'section[data-pos="13"]',
+      style: null,
+      blocks: ['columns'],
+      defaultContent: [],
+    },
+    {
+      id: 'section-rewards',
+      name: 'More Savings / Rewards',
+      selector: 'section[data-pos="14"]',
+      style: 'academy-red',
+      blocks: ['columns'],
+      defaultContent: [],
+    },
+    {
+      id: 'section-app-card-text',
+      name: 'App / Credit Card / Text Signup',
+      selector: 'section[data-pos="15"]',
+      style: null,
+      blocks: ['columns'],
+      defaultContent: [],
+    },
+    {
+      id: 'section-service-features',
+      name: 'Service Features',
+      selector: 'section[data-pos="16"]',
+      style: 'light-gray',
+      blocks: ['cards'],
+      defaultContent: [],
     },
   ],
 };
@@ -169,7 +196,7 @@ function executeTransformers(hookName, element, payload) {
     try {
       transformerFn.call(null, hookName, element, enhancedPayload);
     } catch (e) {
-      console.error(`Transformer failed at ${hookName}:`, e);
+      console.error('Transformer failed at ' + hookName + ':', e);
     }
   });
 }
@@ -182,9 +209,15 @@ function findBlocksOnPage(document, template) {
 
   template.blocks.forEach((blockDef) => {
     blockDef.instances.forEach((selector) => {
-      const elements = document.querySelectorAll(selector);
+      let elements;
+      try {
+        elements = document.querySelectorAll(selector);
+      } catch (e) {
+        console.warn('Invalid selector for "' + blockDef.name + '": ' + selector);
+        return;
+      }
       if (elements.length === 0) {
-        console.warn(`Block "${blockDef.name}" selector not found: ${selector}`);
+        console.warn('Block "' + blockDef.name + '" selector not found: ' + selector);
       }
       elements.forEach((element) => {
         pageBlocks.push({
@@ -197,31 +230,16 @@ function findBlocksOnPage(document, template) {
     });
   });
 
-  console.log(`Found ${pageBlocks.length} block instances on page`);
+  console.log('Found ' + pageBlocks.length + ' block instances on page');
   return pageBlocks;
 }
 
 export default {
   /**
    * Preprocess: runs BEFORE the helix importer strips scripts.
-   * Preserves JSON config data as data-json attributes on parent web components.
    */
   preprocess: ({ document }) => {
-    const scripts = document.querySelectorAll('script[type="application/json"]');
-    console.log(`[preprocess] Found ${scripts.length} JSON scripts to preserve`);
-    scripts.forEach((script) => {
-      const parent = script.parentElement;
-      if (parent) {
-        // Store JSON as a data attribute on the parent custom element
-        const existing = parent.getAttribute('data-json') || '';
-        if (existing) {
-          // Multiple scripts in same parent: store as array
-          parent.setAttribute('data-json', existing + '|||' + script.textContent.trim());
-        } else {
-          parent.setAttribute('data-json', script.textContent.trim());
-        }
-      }
-    });
+    // No JSON scripts to preserve for Academy.com (React-rendered page)
   },
 
   transform: (payload) => {
@@ -241,10 +259,10 @@ export default {
         try {
           parser(block.element, { document, url, params });
         } catch (e) {
-          console.error(`Failed to parse ${block.name} (${block.selector}):`, e);
+          console.error('Failed to parse ' + block.name + ' (' + block.selector + '):', e);
         }
       } else {
-        console.warn(`No parser found for block: ${block.name}`);
+        console.warn('No parser found for block: ' + block.name);
       }
     });
 

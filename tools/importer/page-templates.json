@@ -2,122 +2,194 @@
   "templates": [
     {
       "name": "homepage",
-      "urls": ["https://tires.bridgestone.com/"],
-      "description": "Bridgestone Tires homepage with hero, product categories, promotions, and brand content",
+      "urls": [
+        "https://www.academy.com/"
+      ],
+      "description": "Academy Sports + Outdoors homepage with featured categories, promotions, and brand content",
       "blocks": [
         {
-          "name": "hero-brand",
-          "instances": ["div.hero.aem-GridColumn"]
+          "name": "hero",
+          "instances": [
+            "div[class*='heroCarousel'], div[class*='hero-carousel']",
+            "div:has(a[href*='baseball'])"
+          ]
         },
         {
-          "name": "cards-category",
-          "instances": ["bsx-section#auto .column"]
+          "name": "cards",
+          "instances": [
+            "div[data-testid*='productCarousel']:nth-of-type(1), div[class*='carousel']:has(h2)",
+            "div[data-testid*='productCarousel']:nth-of-type(2)",
+            "div[data-testid*='productCarousel']:nth-of-type(3)",
+            "div[data-testid*='productCarousel']:nth-of-type(4)",
+            "div[class*='brandCarousel'], div:has(> a[href*='running-shoes'])",
+            "div[class*='newFinds'], div:has(a[href*='casual-shoes'])",
+            "div:has(img[alt*='Brazos brand logo'])",
+            "div:has(h3:has-text('$15 OFF AFTER YOU JOIN'))"
+          ]
         },
         {
-          "name": "columns-feature",
-          "instances": ["bsx-section#guide .content-card"]
-        },
-        {
-          "name": "cards-bento",
-          "instances": ["bsx-section#why .bento-box"]
-        },
-        {
-          "name": "cards-promo",
-          "instances": ["bsx-section#offers .column:has(.card)"]
-        },
-        {
-          "name": "columns-showcase",
-          "instances": ["bsx-section#wrm .content-card"]
-        },
-        {
-          "name": "cards-article",
-          "instances": ["bsx-section#resource:has(.separator) .column:has(.card)"]
-        },
-        {
-          "name": "cards-support",
-          "instances": ["section:has(bsx-section#resource) ~ section bsx-grid:has(.card)"]
+          "name": "columns",
+          "instances": [
+            "div:has(a[href*='ariat'])",
+            "div:has(a[href*='mlb'])",
+            "div:has(img[alt*='myAcademy Rewards'])",
+            "div:has(img[alt='Academy Sports'])"
+          ]
         }
       ],
       "sections": [
         {
-          "id": "section-hero",
-          "name": "Hero",
-          "selector": "div.hero.aem-GridColumn",
+          "id": "section-promo-banner",
+          "name": "Promotional Banner",
+          "selector": "section[aria-label='Buy More, Save More']",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [
+            "section[aria-label='Buy More, Save More'] a img"
+          ]
+        },
+        {
+          "id": "section-hero-carousel",
+          "name": "Hero Carousel",
+          "selector": "div[class*='heroCarousel'], div[class*='hero-carousel']",
           "style": null,
-          "blocks": ["hero-brand"],
+          "blocks": [
+            "hero"
+          ],
           "defaultContent": []
         },
         {
-          "id": "section-subnav",
-          "name": "Subnav",
-          "selector": "div.subnav.aem-GridColumn",
+          "id": "section-price-match",
+          "name": "Price Match Guarantee",
+          "selector": "a[href='/price-match-guarantee']",
           "style": null,
           "blocks": [],
-          "defaultContent": ["bsx-subnav a"]
+          "defaultContent": [
+            "a[href='/price-match-guarantee'] img"
+          ]
         },
         {
-          "id": "section-categories",
-          "name": "Tire Categories",
-          "selector": "section:has(bsx-section#auto)",
+          "id": "section-product-carousels",
+          "name": "Product Carousels",
+          "selector": "div[data-testid*='productCarousel']",
           "style": null,
-          "blocks": ["cards-category"],
+          "blocks": [
+            "cards"
+          ],
           "defaultContent": []
         },
         {
-          "id": "section-guide",
-          "name": "Tire Decision Guide",
-          "selector": "section:has(bsx-section#guide)",
-          "style": null,
-          "blocks": ["columns-feature"],
-          "defaultContent": []
+          "id": "section-running-shoes",
+          "name": "Running Shoes Brand Showcase",
+          "selector": "div:has(> a[href*='running-shoes'])",
+          "style": "light-gray",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "div:has(> a[href*='running-shoes']) h2"
+          ]
         },
         {
-          "id": "section-welcome",
-          "name": "Welcome to Bridgestone",
-          "selector": "section:has(bsx-section#why)",
+          "id": "section-new-finds",
+          "name": "New Finds / Color Drops",
+          "selector": "div:has(> img[alt*='NEW FINDS'])",
           "style": null,
-          "blocks": ["cards-bento"],
-          "defaultContent": ["#title-eb9241a6ce"]
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "div:has(> img[alt*='NEW FINDS']) > *:first-child"
+          ]
         },
         {
-          "id": "section-offers",
-          "name": "Tire Offers and Promotions",
-          "selector": "section:has(bsx-section#offers)",
-          "style": null,
-          "blocks": ["cards-promo"],
-          "defaultContent": ["#title-558866290d", "bsx-section#offers .separator"]
-        },
-        {
-          "id": "section-wrm",
-          "name": "What Really Matters",
-          "selector": "section:has(bsx-section#wrm)",
-          "style": null,
-          "blocks": ["columns-showcase"],
-          "defaultContent": []
-        },
-        {
-          "id": "section-whats-new",
-          "name": "Whats New",
-          "selector": "section:has(bsx-section#resource)",
-          "style": null,
-          "blocks": ["cards-article"],
-          "defaultContent": ["#title-ecf2f7fd84", "bsx-section#resource .separator"]
-        },
-        {
-          "id": "section-support",
-          "name": "Support Cards",
-          "selector": ["section:has(bsx-section#resource) ~ section:has(.card)", "section:nth-of-type(8)"],
-          "style": null,
-          "blocks": ["cards-support"],
-          "defaultContent": []
-        },
-        {
-          "id": "section-contact",
-          "name": "Contact Us",
-          "selector": "section:has(bsx-section#about)",
-          "style": null,
+          "id": "section-soccer",
+          "name": "Soccer Promo",
+          "selector": "a[href*='usa-soccer-gear']",
+          "style": "dark",
           "blocks": [],
-          "defaultContent": ["#title-7588a694d7", "bsx-section#about .typography"]
+          "defaultContent": [
+            "a[href*='usa-soccer-gear'] img"
+          ]
+        },
+        {
+          "id": "section-clearance",
+          "name": "Clearance Banner",
+          "selector": "a[href*='clearance']",
+          "style": "yellow",
+          "blocks": [],
+          "defaultContent": [
+            "a[href*='clearance'] img"
+          ]
+        },
+        {
+          "id": "section-baseball",
+          "name": "Baseball Promo",
+          "selector": "div:has(a[href*='baseball'])",
+          "style": "dark",
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-workwear",
+          "name": "Workwear",
+          "selector": [
+            "section[aria-label*='workwear']",
+            "a[href*='workwear']"
+          ],
+          "style": "yellow",
+          "blocks": [
+            "columns",
+            "cards"
+          ],
+          "defaultContent": [
+            "h3:has-text('LOOKING FOR MORE BRANDS')",
+            "a[href*='workwear'] img"
+          ]
+        },
+        {
+          "id": "section-fan-shop",
+          "name": "Trending for Fans",
+          "selector": "div:has(> img[alt*='TRENDING'])",
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": [
+            "div:has(> img[alt*='TRENDING']) > *:first-child"
+          ]
+        },
+        {
+          "id": "section-rewards",
+          "name": "More Savings / Rewards",
+          "selector": "div:has(img[alt*='myAcademy Rewards'])",
+          "style": "academy-red",
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-app-card-text",
+          "name": "App / Credit Card / Text Signup",
+          "selector": "div:has(img[alt='Academy Sports'])",
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-service-features",
+          "name": "Service Features",
+          "selector": "div:has(h3:has-text('$15 OFF AFTER YOU JOIN'))",
+          "style": "light-gray",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
         }
       ]
     }
