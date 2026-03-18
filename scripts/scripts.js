@@ -198,9 +198,9 @@ async function loadEager(doc) {
   }
 
   // Fix page title if it was set incorrectly from import artifacts
-  if (document.title === 'Section Metadata' || !document.title) {
-    const metaTitle = document.querySelector('meta[property="og:title"]');
-    document.title = metaTitle ? metaTitle.content : 'Academy Sports + Outdoors';
+  const badTitles = ['Section Metadata', ''];
+  if (badTitles.includes(document.title)) {
+    document.title = 'Academy Sports + Outdoors';
   }
 
   try {
