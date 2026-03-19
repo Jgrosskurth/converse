@@ -182,9 +182,11 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateButtons(main);
 
-  // Post-decoration: hide sections that ended up empty after section-metadata processing
+  // Post-decoration: hide sections with no meaningful visible content
   main.querySelectorAll(':scope > .section').forEach((section) => {
-    if (!section.childElementCount && !section.textContent.trim()) {
+    const hasText = section.textContent.trim().length > 0;
+    const hasMedia = section.querySelector('img, picture, video, iframe');
+    if (!hasText && !hasMedia) {
       section.style.display = 'none';
     }
   });
