@@ -1,12 +1,13 @@
-/* Academy Sports + Outdoors Header */
+/* Academy Sports + Outdoors Header
+   Original: blue top bar (32px) + white main bar with blue logo + nav links */
 
 /* Wrapper — full-width bar, fixed on mobile */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--color-white);
   width: 100%;
   z-index: 10;
   position: fixed;
-  border-bottom: 1px solid var(--color-grey-border);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
 }
 
 header nav {
@@ -18,7 +19,7 @@ header nav {
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1200px;
+  max-width: var(--section-max-width);
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
@@ -42,7 +43,7 @@ header nav[aria-expanded='true'] {
     justify-content: space-between;
     align-items: center;
     gap: 0 32px;
-    max-width: 1200px;
+    max-width: var(--section-max-width);
     padding: 0 32px;
     height: var(--nav-height);
   }
@@ -68,7 +69,7 @@ header .nav-brand {
 
 /* stylelint-disable no-descending-specificity -- brand needs specificity over nav links */
 header .nav-brand a {
-  color: var(--color-brand-blue, #003057);
+  color: var(--color-brand-blue);
   font-weight: 700;
   text-decoration: none;
 }
@@ -94,8 +95,8 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: var(--color-brand-blue);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -189,7 +190,7 @@ header nav .nav-sections .default-content-wrapper > ul {
 header nav .nav-sections .default-content-wrapper > ul > li {
   font-weight: 600;
   padding: 12px 0;
-  border-bottom: 1px solid var(--color-grey-border);
+  border-bottom: 1px solid var(--color-grey);
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -205,14 +206,14 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     margin: 0;
     font-size: var(--body-font-size-s);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0;
     padding-bottom: 4px;
     border-bottom: 3px solid transparent;
@@ -220,15 +221,15 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a {
-    color: var(--color-text);
+    color: var(--color-text-secondary);
     transition: color var(--transition-base);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a:hover {
-    color: var(--accent-color);
+    color: var(--color-brand-blue);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:hover {
-    border-bottom-color: var(--accent-color);
+    border-bottom-color: var(--color-brand-blue);
   }
 }

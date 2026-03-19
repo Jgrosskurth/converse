@@ -1,10 +1,15 @@
+/* Academy Sports + Outdoors Columns Block
+   Responsive column layout matching Academy.com's content sections */
+
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns img {
   width: 100%;
+  border-radius: 4px;
 }
 
 .columns > div > div {
@@ -19,11 +24,21 @@
   display: block;
 }
 
+.columns h2,
+.columns h3 {
+  color: var(--color-brand-navy);
+}
+
+.columns p {
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 32px;
   }
 
   .columns > div > div {

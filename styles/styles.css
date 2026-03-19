@@ -1,33 +1,39 @@
 /*
  * Academy Sports + Outdoors - AEM Edge Delivery Services
+ * Design tokens extracted from https://www.academy.com (March 2026)
  */
 
 :root {
-  /* colors */
-  --color-brand-blue: #003057;
-  --color-brand-red: #e4002b;
+  /* brand colors */
+  --color-brand-blue: #1946c8;
+  --color-brand-blue-dark: #0749aa;
+  --color-brand-navy: #01204a;
+  --color-brand-red: #e81011;
   --color-brand-red-hover: #c50025;
   --color-white: #fff;
   --color-black: #000;
-  --color-text: #333;
-  --color-text-muted: #666;
-  --color-grey-light: #f5f5f5;
-  --color-grey-border: #ddd;
+  --color-text: #212529;
+  --color-text-secondary: #333;
+  --color-text-muted: #555;
+  --color-grey-light: #f4f6f8;
+  --color-grey: #e0e0e0;
+  --color-grey-border: #ccc;
   --color-yellow: #ffc72c;
   --color-yellow-light: #fff3d0;
+  --color-green: #167d16;
 
   /* semantic colors */
   --background-color: var(--color-white);
   --light-color: var(--color-grey-light);
-  --dark-color: var(--color-black);
+  --dark-color: var(--color-brand-navy);
   --text-color: var(--color-text);
   --link-color: var(--color-brand-blue);
-  --link-hover-color: var(--color-brand-red);
-  --accent-color: var(--color-brand-red);
+  --link-hover-color: var(--color-brand-blue-dark);
+  --accent-color: var(--color-brand-blue);
 
   /* fonts */
-  --body-font-family: system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
-  --heading-font-family: system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+  --body-font-family: 'Open Sans', sans-serif;
+  --heading-font-family: 'Open Sans', sans-serif;
 
   /* body sizes */
   --body-font-size-m: 16px;
@@ -35,25 +41,25 @@
   --body-font-size-xs: 12px;
 
   /* heading sizes (mobile first) */
-  --heading-font-size-xxl: 36px;
-  --heading-font-size-xl: 28px;
-  --heading-font-size-l: 24px;
-  --heading-font-size-m: 20px;
-  --heading-font-size-s: 18px;
-  --heading-font-size-xs: 16px;
+  --heading-font-size-xxl: 28px;
+  --heading-font-size-xl: 24px;
+  --heading-font-size-l: 20px;
+  --heading-font-size-m: 18px;
+  --heading-font-size-s: 16px;
+  --heading-font-size-xs: 14px;
 
   /* nav */
   --nav-height: 64px;
 
   /* layout */
-  --section-max-width: 1200px;
+  --section-max-width: 1440px;
   --section-padding: 0 24px;
 
   /* buttons */
   --button-border-radius: 4px;
-  --button-padding: 10px 24px;
-  --button-font-size: 14px;
-  --button-font-weight: 600;
+  --button-padding: 12px 24px;
+  --button-font-size: 16px;
+  --button-font-weight: 700;
   --button-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
   /* transitions */
@@ -63,12 +69,12 @@
 
 @media (width >= 900px) {
   :root {
-    --heading-font-size-xxl: 48px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 24px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xxl: 36px;
+    --heading-font-size-xl: 28px;
+    --heading-font-size-l: 24px;
+    --heading-font-size-m: 20px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
     --section-padding: 0 32px;
   }
 }
@@ -110,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
   scroll-margin: 40px;
-  color: var(--text-color);
+  color: var(--color-brand-navy);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -155,6 +161,7 @@ a:any-link {
 
 a:hover {
   color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
 /* buttons */
@@ -170,7 +177,7 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid var(--accent-color);
+  border: 1px solid var(--accent-color);
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   font-family: var(--body-font-family);
@@ -178,20 +185,21 @@ button.button {
   font-weight: var(--button-font-weight);
   line-height: 1;
   text-decoration: none;
-  text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: var(--button-transition);
-  background-color: var(--background-color);
-  color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: var(--color-white);
 }
 
 a.button:hover,
 button.button:hover {
-  background-color: var(--color-grey-light);
-  border-color: var(--color-brand-red-hover);
+  background-color: var(--color-brand-blue-dark);
+  border-color: var(--color-brand-blue-dark);
+  color: var(--color-white);
+  text-decoration: none;
 }
 
 a.button:focus-visible,
@@ -200,7 +208,7 @@ button.button:focus-visible {
   outline-offset: 2px;
 }
 
-/* primary button */
+/* primary button - blue filled (default) */
 a.button.primary,
 button.button.primary {
   border-color: var(--accent-color);
@@ -210,12 +218,12 @@ button.button.primary {
 
 a.button.primary:hover,
 button.button.primary:hover {
-  border-color: var(--color-brand-red-hover);
-  background-color: var(--color-brand-red-hover);
+  border-color: var(--color-brand-blue-dark);
+  background-color: var(--color-brand-blue-dark);
   color: var(--color-white);
 }
 
-/* secondary button */
+/* secondary button - outlined */
 a.button.secondary,
 button.button.secondary {
   border-color: var(--accent-color);
@@ -228,18 +236,19 @@ button.button.secondary:hover {
   background-color: var(--color-grey-light);
 }
 
-/* accent button */
+/* accent button - red filled for high-impact CTAs */
 a.button.accent,
 button.button.accent {
-  border-color: var(--color-brand-blue);
-  background-color: var(--color-brand-blue);
+  border-color: var(--color-brand-red);
+  background-color: var(--color-brand-red);
   color: var(--color-white);
 }
 
 a.button.accent:hover,
 button.button.accent:hover {
-  border-color: var(--color-brand-blue);
-  background-color: #024;
+  border-color: var(--color-brand-red-hover);
+  background-color: var(--color-brand-red-hover);
+  color: var(--color-white);
 }
 
 main img {
@@ -302,9 +311,46 @@ main .section.dark a:any-link {
   color: var(--color-white);
 }
 
+main .section.dark a:hover {
+  text-decoration: underline;
+}
+
+main .section.dark a.button:any-link {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-brand-blue);
+}
+
+main .section.dark a.button:hover {
+  background-color: var(--color-grey-light);
+  text-decoration: none;
+}
+
 main .section.dark a.button.secondary {
   color: var(--color-white);
   border-color: var(--color-white);
+  background-color: transparent;
+}
+
+main .section.dark a.button.secondary:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+main .section.navy {
+  background-color: var(--color-brand-navy);
+  color: var(--color-white);
+}
+
+main .section.navy h1,
+main .section.navy h2,
+main .section.navy h3,
+main .section.navy h4,
+main .section.navy p {
+  color: var(--color-white);
+}
+
+main .section.navy a:any-link {
+  color: var(--color-white);
 }
 
 main .section.yellow {
@@ -320,7 +366,14 @@ main .section.yellow p {
 }
 
 main .section.academy-red {
-  background-color: var(--accent-color);
+  background-color: var(--color-brand-red);
+  color: var(--color-white);
+}
+
+main .section.academy-red h1,
+main .section.academy-red h2,
+main .section.academy-red h3,
+main .section.academy-red p {
   color: var(--color-white);
 }
 

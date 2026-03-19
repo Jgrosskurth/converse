@@ -1,23 +1,26 @@
-/* Academy Sports + Outdoors Footer */
+/* Academy Sports + Outdoors Footer
+   Original: blue background (#1946c8), white text, accordion sections on mobile */
 
 footer {
-  background-color: var(--light-color);
+  background-color: var(--color-brand-blue);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-m);
+  color: var(--color-white);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1264px;
-  padding: 48px 24px 24px;
+  max-width: var(--section-max-width);
+  padding: 32px 24px;
 }
 
 footer .footer p {
   margin: 0;
+  color: var(--color-white);
 }
 
 /* ============================================================
-   Link columns — single column on mobile, 5-col grid desktop
+   Link columns
    ============================================================ */
 footer .footer .default-content-wrapper {
   display: grid;
@@ -29,7 +32,7 @@ footer .footer .default-content-wrapper ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--color-grey-border);
+  border-top: 1px solid rgb(255 255 255 / 20%);
 }
 
 footer .footer .default-content-wrapper ul:last-of-type {
@@ -38,36 +41,38 @@ footer .footer .default-content-wrapper ul:last-of-type {
   margin-top: 8px;
 }
 
-/* footer link items — general rule first for specificity */
+/* footer link items */
 footer .footer .default-content-wrapper ul > li {
   padding: 6px 0;
 }
 
+/* stylelint-disable no-descending-specificity -- footer link specificity needed */
 footer .footer .default-content-wrapper ul > li a:any-link {
-  color: var(--color-black);
+  color: var(--color-white);
   font-family: var(--body-font-family);
-  font-size: 13.7px;
+  font-size: var(--body-font-size-xs);
   font-weight: 400;
   line-height: 1.5;
   text-decoration: none;
-  transition: color var(--transition-base);
+  transition: opacity var(--transition-base);
 }
 
 footer .footer .default-content-wrapper ul > li a:hover {
-  color: var(--accent-color);
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
-/* column headings (h6 inside li:first-child) — after general li */
+/* column headings */
 footer .footer .default-content-wrapper ul > li:first-child {
   padding: 16px 0 8px;
 }
 
 footer .footer .default-content-wrapper ul > li:first-child h6 {
   font-family: var(--body-font-family);
-  font-size: 17.5px;
-  font-weight: 500;
-  line-height: 1.6;
-  color: var(--color-text-muted);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-white);
   margin: 0;
   display: flex;
   align-items: center;
@@ -75,14 +80,15 @@ footer .footer .default-content-wrapper ul > li:first-child h6 {
 }
 
 footer .footer .default-content-wrapper ul > li:first-child h6 a {
-  color: var(--color-text-muted);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: var(--color-white);
+  text-decoration: none;
 }
 
 footer .footer .default-content-wrapper ul > li:first-child h6 a:hover {
-  color: var(--accent-color);
+  opacity: 0.8;
 }
+
+/* stylelint-enable no-descending-specificity */
 
 /* external link icon */
 footer .footer .default-content-wrapper ul > li a .icon {
@@ -99,14 +105,14 @@ footer .footer .default-content-wrapper ul > li a img {
   height: 18px;
   vertical-align: middle;
   margin-left: 6px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* ============================================================
    Copyright bar — bottom of footer
    ============================================================ */
 footer .footer .section:last-child {
-  border-top: 1px solid var(--color-grey-border);
+  border-top: 1px solid rgb(255 255 255 / 20%);
   margin-top: 24px;
   padding-top: 24px;
 }
@@ -125,7 +131,7 @@ footer .footer .section:last-child img {
 
 footer .footer .section:last-child p {
   font-size: var(--body-font-size-xs);
-  color: var(--color-text);
+  color: rgb(255 255 255 / 70%);
   text-align: center;
   margin: 0;
 }
@@ -147,36 +153,36 @@ footer .footer .section:last-child ul li {
 footer .footer .section:last-child ul li::after {
   content: '|';
   margin-left: 8px;
-  color: var(--color-grey-border);
+  color: rgb(255 255 255 / 40%);
 }
 
 footer .footer .section:last-child ul li:last-child::after {
   content: none;
 }
 
-/* stylelint-disable no-descending-specificity -- different DOM context: copyright bar vs link columns */
+/* stylelint-disable no-descending-specificity -- different DOM context: copyright vs column links */
 footer .footer .section:last-child ul li a:any-link {
-  color: var(--color-black);
+  color: rgb(255 255 255 / 70%);
   font-size: var(--body-font-size-xs);
   text-decoration: none;
 }
 
 footer .footer .section:last-child ul li a:hover {
-  color: var(--accent-color);
+  color: var(--color-white);
 }
 
 /* stylelint-enable no-descending-specificity */
 
 /* ============================================================
-   Desktop — 5 columns + horizontal copyright bar
+   Desktop — multi-column + horizontal copyright bar
    ============================================================ */
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 72px 32px 24px;
+    padding: 48px 32px 24px;
   }
 
   footer .footer .default-content-wrapper {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0 32px;
   }
 
@@ -186,7 +192,7 @@ footer .footer .section:last-child ul li a:hover {
 
   footer .footer .default-content-wrapper ul > li:first-child {
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-grey-border);
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
     margin-bottom: 8px;
   }
 
