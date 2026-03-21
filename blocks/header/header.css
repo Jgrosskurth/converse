@@ -251,14 +251,14 @@ header .nav-actions img {
 /* stylelint-enable no-descending-specificity */
 
 header .nav-sign-in span {
-  display: none;
-  font-size: 14px;
+  display: inline;
+  font-size: 12px;
   text-decoration: underline;
 }
 
 @media (width >= 900px) {
   header .nav-sign-in span {
-    display: inline;
+    font-size: 14px;
   }
 }
 

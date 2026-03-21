@@ -165,6 +165,38 @@ function cleanImportArtifacts(main) {
 }
 
 /**
+ * Groups alternating heading + cards pairs into scrollable panels.
+ * Matches the academy.com horizontal-scroll category layout.
+ * @param {Element} main The main element
+ */
+function buildCardPanels(main) {
+  main.querySelectorAll(':scope > .section.cards-container').forEach((section) => {
+    const children = [...section.children];
+    const panels = [];
+    let current = null;
+
+    children.forEach((child) => {
+      if (child.classList.contains('default-content-wrapper') && child.querySelector('h2, h3')) {
+        current = document.createElement('div');
+        current.className = 'card-panel';
+        current.append(child);
+        panels.push(current);
+      } else if (current && child.classList.contains('cards-wrapper')) {
+        current.append(child);
+        current = null;
+      }
+    });
+
+    if (panels.length > 1) {
+      const scroll = document.createElement('div');
+      scroll.className = 'card-panels-scroll';
+      panels.forEach((p) => scroll.append(p));
+      section.prepend(scroll);
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -176,6 +208,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  buildCardPanels(main);
 
   // Post-decoration: hide sections with no meaningful visible content
   main.querySelectorAll(':scope > .section').forEach((section) => {

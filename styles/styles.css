@@ -416,6 +416,69 @@ main > .section .default-content-wrapper h3 + p a:any-link {
   color: var(--color-brand-blue);
 }
 
+/* horizontal scrolling card panels — matches academy.com category layout */
+.card-panels-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.card-panels-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.card-panel {
+  flex: 0 0 70vw;
+  min-width: 260px;
+  max-width: 320px;
+  border: 1px solid var(--color-grey-border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.card-panel .default-content-wrapper {
+  margin-bottom: 8px;
+}
+
+.card-panel .cards-wrapper {
+  padding: 0;
+}
+
+.card-panel .cards > ul {
+  gap: 8px;
+}
+
+.card-panel .cards > ul > li {
+  padding: 4px;
+}
+
+.card-panel .cards > ul > li img {
+  max-height: 120px;
+}
+
+.card-panel .cards .cards-card-body h3 {
+  font-size: 11px;
+  -webkit-line-clamp: 1;
+}
+
+@media (width >= 900px) {
+  .card-panels-scroll {
+    gap: 16px;
+  }
+
+  .card-panel {
+    flex: 0 0 340px;
+    max-width: 400px;
+  }
+
+  .card-panel .cards > ul > li img {
+    max-height: 160px;
+  }
+}
+
 /* full-width image links (promo banners) */
 main > .section > .default-content-wrapper > p > a:has(> img) {
   display: block;
