@@ -10,7 +10,6 @@
 .columns img {
   width: 100%;
   border-radius: 4px;
-  max-height: 160px;
   object-fit: cover;
 }
 
@@ -96,7 +95,7 @@
   }
 
   .columns img {
-    max-height: 300px;
+    max-height: 400px;
   }
 
   .columns h3 {
@@ -105,5 +104,22 @@
 
   .columns p {
     font-size: var(--body-font-size-s);
+  }
+
+  /* 3-column info cards — larger at desktop */
+  .columns > div:has(> :nth-child(3)) > div {
+    padding: 20px 16px;
+  }
+
+  .columns > div:has(> :nth-child(3)) img {
+    max-height: 48px;
+  }
+
+  .columns > div:has(> :nth-child(3)) h3 {
+    font-size: var(--body-font-size-s);
+  }
+
+  .columns > div:has(> :nth-child(3)) p {
+    font-size: var(--body-font-size-xs);
   }
 }

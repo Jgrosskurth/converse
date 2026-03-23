@@ -102,7 +102,7 @@
   }
 
   /* 2-column hero layout: hero banner (left) + promo content (right) */
-  main > .section.hero-container {
+  main > .section.hero-container:has(> .default-content-wrapper) {
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 0;
