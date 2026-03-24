@@ -114,196 +114,16 @@ function decorateButtons(main) {
 }
 
 /**
- * Removes chatbot widgets, Scout AI, Clarip, and other noise from imported content.
- * These elements are artifacts from the original site's third-party scripts.
- * @param {Element} main The main element
- */
-function cleanImportArtifacts(main) {
-  // Remove duplicate section-metadata blocks (import artifact)
-  main.querySelectorAll(':scope > div').forEach((section) => {
-    const metas = [...section.querySelectorAll(':scope > .section-metadata')];
-    if (metas.length > 1) metas.slice(1).forEach((m) => m.remove());
-  });
-
-  // Remove chatbot / Scout AI noise: truncate at "Need Help?" marker
-  // Only target non-link "Need Help?" text (skip legitimate nav links)
-  main.querySelectorAll(':scope > div').forEach((section) => {
-    const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
-    let node = walker.nextNode();
-    while (node) {
-      if (node.textContent.includes('Need Help?') && !node.parentElement.closest('a')) {
-        let target = node.parentElement;
-        while (target && target.parentElement !== section) target = target.parentElement;
-        if (target) {
-          while (target.nextElementSibling) target.nextElementSibling.remove();
-          target.remove();
-        }
-        break;
-      }
-      node = walker.nextNode();
-    }
-  });
-
-  // Remove malformed metadata tables that render as visible text
-  main.querySelectorAll('p').forEach((p) => {
-    if (p.textContent.includes('Metadata') && p.textContent.includes('Title')) {
-      const section = p.closest('div');
-      if (section && section.parentElement === main) section.remove();
-      else p.remove();
-    }
-  });
-
-  // Remove .description divs (not a real block, causes 404)
-  main.querySelectorAll('.description').forEach((el) => el.remove());
-
-  // Remove empty sections
-  main.querySelectorAll(':scope > div').forEach((section) => {
-    if (!section.textContent.trim() && !section.querySelector('img, picture, video')) {
-      section.remove();
-    }
-  });
-}
-
-/**
- * Groups alternating heading + cards pairs into scrollable panels.
- * Matches the academy.com horizontal-scroll category layout.
- * @param {Element} main The main element
- */
-function buildCardPanels(main) {
-  main.querySelectorAll(':scope > .section.cards-container').forEach((section) => {
-    const children = [...section.children];
-    const panels = [];
-    let current = null;
-
-    children.forEach((child) => {
-      if (child.classList.contains('default-content-wrapper') && child.querySelector('h2, h3')) {
-        current = document.createElement('div');
-        current.className = 'card-panel';
-        current.append(child);
-        panels.push(current);
-      } else if (current && child.classList.contains('cards-wrapper')) {
-        current.append(child);
-        current = null;
-      }
-    });
-
-    if (panels.length > 1) {
-      const scroll = document.createElement('div');
-      scroll.className = 'card-panels-scroll';
-      panels.forEach((p) => scroll.append(p));
-      section.prepend(scroll);
-    } else if (panels.length === 1) {
-      // Single panel — restore children back to section (no scroll wrapper needed)
-      while (panels[0].firstChild) section.append(panels[0].firstChild);
-    }
-  });
-}
-
-/**
- * Marks homepage sections for hiding or banner-only display.
- * Runs after decoration to identify sections by content.
- * @param {Element} main The main element
- */
-function customizeHomepageSections(main) {
-  const sections = [...main.querySelectorAll(':scope > .section')];
-  let firstDark = true;
-
-  sections.forEach((section) => {
-    const imgAlts = [...section.querySelectorAll('img')].map((i) => i.alt || '').join(' ');
-    const headingText = [...section.querySelectorAll('h2, h3')].map((h) => h.textContent).join(' ');
-    const isDark = section.classList.contains('dark');
-    const isYellow = section.classList.contains('yellow');
-    const isHero = section.classList.contains('hero-container');
-    const isColumns = section.classList.contains('columns-container');
-    const isCards = section.classList.contains('cards-container');
-
-    // Hide: Buy More Save More (first dark section, not a hero)
-    if (isDark && !isHero && firstDark) {
-      section.classList.add('homepage-hidden');
-      firstDark = false;
-      return;
-    }
-    if (isDark && !isHero) firstDark = false;
-
-    // Hide: Expect The Unexpected
-    if (isDark && !isHero && imgAlts.includes('Expect')) {
-      section.classList.add('homepage-hidden');
-    }
-
-    // Hide: Clearance banner
-    if (isYellow && imgAlts.includes('Clearance')) {
-      section.classList.add('homepage-hidden');
-    }
-
-    // Hide: Gear That Goes The Distance (dark hero)
-    if (isDark && isHero) {
-      section.classList.add('homepage-hidden');
-    }
-
-    // Hide: Opening Day / Games Start This Week
-    if (isColumns && headingText.includes('Opening Day')) {
-      section.classList.add('homepage-hidden');
-    }
-
-    // Banner-only: Running brands (Nike/ASICS/Brooks section with Run Month banner)
-    if (isCards && imgAlts.includes('Run Month')) {
-      section.classList.add('banner-only-cards');
-    }
-
-    // Banner-only: Birkenstock/Owala/Turtlebox lifestyle cards
-    if (isCards && headingText.includes('Color Drop')) {
-      section.classList.add('banner-only-cards');
-    }
-
-    // Banner-only: Ariat/Carhartt columns
-    if (isColumns && (imgAlts.includes('ARIAT') || imgAlts.includes('Carhartt'))) {
-      section.classList.add('banner-only-columns');
-    }
-
-    // Brand logos: Looking for More Brands
-    if (isCards && headingText.includes('LOOKING FOR MORE BRANDS')) {
-      section.classList.add('banner-only-cards', 'brand-logos');
-      // Swap Wolverine logo with Ariat
-      section.querySelectorAll('img').forEach((img) => {
-        if (img.alt && img.alt.toLowerCase().includes('wolverine')) {
-          img.src = 'https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltae41a11634a40ee8/69bc2aee3002769f9ed95454/Ariat.png';
-          img.alt = 'Ariat brand logo';
-        }
-      });
-    }
-  });
-}
-
-/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  cleanImportArtifacts(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
-  buildCardPanels(main);
-  customizeHomepageSections(main);
-
-  // Post-decoration: hide sections with no meaningful visible content
-  main.querySelectorAll(':scope > .section').forEach((section) => {
-    const hasText = section.textContent.trim().length > 0;
-    const hasMedia = section.querySelector('img, picture, video, iframe');
-    if (!hasText && !hasMedia) {
-      section.style.display = 'none';
-    }
-  });
-
-  // Eagerly load the LCP image (first image in first visible section)
-  const lcpSection = main.querySelector(':scope > .section:not(.homepage-hidden)');
-  if (lcpSection) {
-    const lcpImg = lcpSection.querySelector('img');
-    if (lcpImg) lcpImg.loading = 'eager';
-  }
 }
 
 /**
@@ -317,17 +137,16 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    // Load the first visible section eagerly (skip homepage-hidden sections)
-    const firstVisible = main.querySelector('.section:not(.homepage-hidden)');
-    if (firstVisible) {
-      await loadSection(firstVisible, waitForFirstImage);
-    }
+    await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 
-  // Fix page title if it was set incorrectly from import artifacts
-  const badTitles = ['Section Metadata', ''];
-  if (badTitles.includes(document.title)) {
-    document.title = 'Academy Sports + Outdoors';
+  try {
+    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
+    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
+      loadFonts();
+    }
+  } catch (e) {
+    // do nothing
   }
 }
 

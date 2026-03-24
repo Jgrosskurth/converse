@@ -1,4 +1,4 @@
 mountpoints:
   /:
-    url: https://content.da.live/Jgrosskurth/academy/
+    url: https://content.da.live/Jgrosskurth/converse/
     type: markup

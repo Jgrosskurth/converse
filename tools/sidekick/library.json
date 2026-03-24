@@ -1,6 +1,0 @@
-{
-  "blocks": {
-    "data": []
-  },
-  "extends": "https://raw.githubusercontent.com/jgrosskurth/bridgestone/main/tools/sidekick/extended-library.json"
-}
