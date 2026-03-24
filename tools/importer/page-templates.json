@@ -1,0 +1,123 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.converse.com"
+      ],
+      "description": "Converse homepage with hero banners, featured collections, and promotional content",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": [
+            "[id='03-13-hmpg-throwback_desktop'] .modular-tile--media"
+          ],
+          "section": "section-1"
+        },
+        {
+          "name": "carousel-categories",
+          "instances": [
+            ".featured-carousel"
+          ],
+          "section": "section-2"
+        },
+        {
+          "name": "hero-editorial",
+          "instances": [
+            "[id='03-19-hmpg-converse-color_desktop'] .modular-tile--media"
+          ],
+          "section": "section-3"
+        },
+        {
+          "name": "columns-featured",
+          "instances": [
+            "[id='03-19-hmpg-2-up-cby-shai-sold-out_desktop']"
+          ],
+          "section": "section-4"
+        },
+        {
+          "name": "columns-marketing",
+          "instances": [
+            ".marketing-tiles"
+          ],
+          "section": "section-7"
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero - Chuck Taylor Throwback",
+          "selector": "[id='03-13-hmpg-throwback_desktop']",
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Featured Categories Carousel",
+          "selector": ".featured-carousel",
+          "style": null,
+          "blocks": [
+            "carousel-categories"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Converse Color - Chuck 70",
+          "selector": "[id='03-19-hmpg-converse-color_desktop']",
+          "style": null,
+          "blocks": [
+            "hero-editorial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Two-Up - Custom By You + SHAI 001",
+          "selector": "[id='03-19-hmpg-2-up-cby-shai-sold-out_desktop']",
+          "style": null,
+          "blocks": [
+            "columns-featured"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Email Signup",
+          "selector": "[id='07-09-hmpg-email-sign-up_desktop']",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [
+            "[id='07-09-hmpg-email-sign-up_desktop'] h2",
+            "[id='07-09-hmpg-email-sign-up_desktop'] p",
+            "[id='07-09-hmpg-email-sign-up_desktop'] a"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Explore Converse - Wayfinding",
+          "selector": "[id='12-23-wayfinding_desktop']",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "[id='12-23-wayfinding_desktop'] h2",
+            "[id='12-23-wayfinding_desktop'] a"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Marketing Tiles",
+          "selector": ".marketing-tiles",
+          "style": null,
+          "blocks": [
+            "columns-marketing"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

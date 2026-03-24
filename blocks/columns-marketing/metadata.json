@@ -1,0 +1,9 @@
+{
+  "variantName": "columns-marketing",
+  "baseBlock": "columns",
+  "description": "Four equal columns with icon, heading, description, and CTA for marketing/service tiles",
+  "sourceUrl": "https://www.converse.com/",
+  "sourceSelector": ".marketing-tiles",
+  "created": "2026-03-24",
+  "usage": ["https://www.converse.com/"]
+}

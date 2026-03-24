@@ -1,0 +1,33 @@
+.columns-marketing > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-marketing img {
+  width: 100%;
+}
+
+.columns-marketing > div > div {
+  order: 1;
+}
+
+.columns-marketing > div > .columns-marketing-img-col {
+  order: 0;
+}
+
+.columns-marketing > div > .columns-marketing-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-marketing > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-marketing > div > div {
+    flex: 1;
+    order: unset;
+  }
+}

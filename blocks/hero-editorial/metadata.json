@@ -1,0 +1,9 @@
+{
+  "variantName": "hero-editorial",
+  "baseBlock": "hero",
+  "description": "Full-width editorial hero with background image, product storytelling text, and CTA",
+  "sourceUrl": "https://www.converse.com/",
+  "sourceSelector": "#03-19-hmpg-converse-color_desktop",
+  "created": "2026-03-24",
+  "usage": ["https://www.converse.com/"]
+}

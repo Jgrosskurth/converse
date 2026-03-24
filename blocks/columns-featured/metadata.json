@@ -1,0 +1,9 @@
+{
+  "variantName": "columns-featured",
+  "baseBlock": "columns",
+  "description": "Two equal columns with image, label, heading, description, and CTA in each for featured content",
+  "sourceUrl": "https://www.converse.com/",
+  "sourceSelector": "#03-19-hmpg-2-up-cby-shai-sold-out_desktop",
+  "created": "2026-03-24",
+  "usage": ["https://www.converse.com/"]
+}

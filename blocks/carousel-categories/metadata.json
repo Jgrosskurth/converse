@@ -1,0 +1,9 @@
+{
+  "variantName": "carousel-categories",
+  "baseBlock": "carousel",
+  "description": "Image carousel showcasing product categories with navigation text labels",
+  "sourceUrl": "https://www.converse.com/",
+  "sourceSelector": ".featured-carousel",
+  "created": "2026-03-24",
+  "usage": ["https://www.converse.com/"]
+}
