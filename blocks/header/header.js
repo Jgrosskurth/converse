@@ -161,16 +161,19 @@ export default async function decorate(block) {
   </a>`;
   nav.append(navActions);
 
-  // Build location/pickup bar
-  const locationBar = document.createElement('div');
-  locationBar.className = 'nav-location-bar';
-  locationBar.innerHTML = `<a href="/storelocator/directory" class="nav-location-link" aria-label="Find a store">
-    <img src="/icons/location.svg" alt="" loading="lazy" width="16" height="16">
-    <span class="nav-location-name">Academy Sports + Outdoors</span>
-    <span class="nav-location-pickup">Free 1 Hour In Store Pickup &amp; Curbside</span>
-    <span class="nav-location-arrow">&rsaquo;</span>
-  </a>`;
-  nav.append(locationBar);
+  // Add location/pickup info into the tools bar (single blue bar)
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const locationInfo = document.createElement('div');
+    locationInfo.className = 'nav-location-info';
+    locationInfo.innerHTML = `<a href="/storelocator/directory" class="nav-location-link" aria-label="Find a store">
+      <img src="/icons/location.svg" alt="" loading="lazy" width="16" height="16">
+      <span class="nav-location-name">Academy Sports + Outdoors</span>
+      <span class="nav-location-pickup">Free 1 Hour In Store Pickup &amp; Curbside</span>
+      <span class="nav-location-arrow">&rsaquo;</span>
+    </a>`;
+    navTools.prepend(locationInfo);
+  }
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

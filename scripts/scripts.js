@@ -262,7 +262,7 @@ function customizeHomepageSections(main) {
 
     // Brand logos: Looking for More Brands
     if (isCards && headingText.includes('LOOKING FOR MORE BRANDS')) {
-      section.classList.add('banner-only-cards');
+      section.classList.add('banner-only-cards', 'brand-logos');
     }
   });
 }
