@@ -89,6 +89,12 @@
   font-size: 10px;
 }
 
+/* image-only columns in 3-col layout — show full banner */
+.columns > div:has(> :nth-child(3)) > div:not(:has(h3)) img {
+  max-height: none;
+  width: 100%;
+}
+
 @media (width >= 600px) {
   .columns > div {
     grid-template-columns: 1fr 1fr;

@@ -264,6 +264,7 @@
   }
 
   .cards > ul:has(> li:nth-child(5):last-child) > li img:not([src*=".svg"]) {
+    aspect-ratio: auto;
     max-height: 320px;
     border-radius: 12px;
     object-fit: contain;
