@@ -297,6 +297,13 @@ export function decorateMain(main) {
       section.style.display = 'none';
     }
   });
+
+  // Eagerly load the LCP image (first image in first visible section)
+  const lcpSection = main.querySelector(':scope > .section:not(.homepage-hidden)');
+  if (lcpSection) {
+    const lcpImg = lcpSection.querySelector('img');
+    if (lcpImg) lcpImg.loading = 'eager';
+  }
 }
 
 /**
@@ -310,22 +317,17 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    // Load the first visible section eagerly (skip homepage-hidden sections)
+    const firstVisible = main.querySelector('.section:not(.homepage-hidden)');
+    if (firstVisible) {
+      await loadSection(firstVisible, waitForFirstImage);
+    }
   }
 
   // Fix page title if it was set incorrectly from import artifacts
   const badTitles = ['Section Metadata', ''];
   if (badTitles.includes(document.title)) {
     document.title = 'Academy Sports + Outdoors';
-  }
-
-  try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
-      loadFonts();
-    }
-  } catch (e) {
-    // do nothing
   }
 }
 
