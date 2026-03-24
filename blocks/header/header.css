@@ -1,12 +1,13 @@
 /* Academy Sports + Outdoors Header
-   Single blue header with white text, combined utility/location bar, red separator */
+   Blue utility bar at top + white main nav row with red separator */
 
-/* Wrapper — full-width, sticky, blue background */
+/* Wrapper — full-width, sticky */
 header .nav-wrapper {
-  background-color: var(--color-brand-blue);
+  background-color: var(--color-white);
   width: 100%;
   z-index: 10;
   position: fixed;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 @media (width >= 900px) {
@@ -61,7 +62,7 @@ header nav p {
 
 /* stylelint-disable no-descending-specificity */
 header nav a:any-link {
-  color: var(--color-white);
+  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -99,7 +100,7 @@ header nav .nav-hamburger button {
   border-radius: 0;
   padding: 0;
   background-color: transparent;
-  color: var(--color-white);
+  color: var(--color-brand-blue);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -177,7 +178,7 @@ header .nav-search-form {
   display: flex;
   align-items: center;
   background-color: var(--color-white);
-  border: none;
+  border: 1px solid var(--color-grey);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -195,7 +196,7 @@ header .nav-search-form input[type='search'] {
 }
 
 header .nav-search-form button {
-  background: var(--color-brand-navy, #003057);
+  background: var(--color-brand-blue);
   border: none;
   padding: 8px 12px;
   cursor: pointer;
@@ -238,7 +239,7 @@ header .nav-actions a {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: var(--color-white);
+  color: var(--color-text);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -246,7 +247,6 @@ header .nav-actions a {
 header .nav-actions img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1);
 }
 
 /* stylelint-enable no-descending-specificity */
@@ -254,7 +254,7 @@ header .nav-actions img {
 header .nav-sign-in span {
   display: inline;
   font-size: 12px;
-  color: var(--color-white);
+  text-decoration: underline;
 }
 
 @media (width >= 900px) {
@@ -291,7 +291,7 @@ header nav .nav-sections .default-content-wrapper > ul {
 header nav .nav-sections .default-content-wrapper > ul > li {
   font-weight: 600;
   padding: 12px 0;
-  border-bottom: 1px solid rgb(255 255 255 / 20%);
+  border-bottom: 1px solid #eee;
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -322,23 +322,23 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a {
-    color: var(--color-white);
-    transition: opacity var(--transition-base);
+    color: var(--color-text);
+    transition: color var(--transition-base);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a:hover {
-    opacity: 0.8;
+    color: var(--color-brand-blue);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:hover {
-    border-bottom-color: var(--color-white);
+    border-bottom-color: var(--color-brand-blue);
   }
 }
 
 /* Utility/tools bar — combined location + utility links */
 header .nav-tools {
   display: block;
-  background: rgb(0 0 0 / 15%);
+  background: var(--color-brand-blue);
   grid-column: 1 / -1;
   margin: 8px -16px -8px;
   padding: 0 16px;
@@ -398,7 +398,7 @@ header .nav-location-arrow {
   header .nav-tools {
     display: flex;
     justify-content: center;
-    background: rgb(0 0 0 / 15%);
+    background: var(--color-brand-blue);
     position: absolute;
     top: 0;
     left: 0;
