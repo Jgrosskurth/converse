@@ -1,12 +1,12 @@
 /* Link list section - horizontal navigation strip (not Explore Converse) */
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px 32px;
   border-top: 1px solid #e5e5e5;
 }
 
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) > p {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) > p {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -14,7 +14,7 @@ main > .section > .default-content-wrapper:has(ul):not(.explore-converse) > p {
   margin-bottom: 12px;
 }
 
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) ul {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -23,21 +23,21 @@ main > .section > .default-content-wrapper:has(ul):not(.explore-converse) ul {
   margin: 0;
 }
 
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) ul li {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) ul li {
   font-size: 12px;
   border-right: 1px solid #e5e5e5;
   padding: 0 12px;
 }
 
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) ul li:first-child {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) ul li:first-child {
   padding-left: 0;
 }
 
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) ul li:last-child {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) ul li:last-child {
   border-right: none;
 }
 
-main > .section > .default-content-wrapper:has(ul):not(.explore-converse) ul li a:any-link {
+main > .section:not(.dark) > .default-content-wrapper:has(ul):not(.explore-converse) ul li a:any-link {
   color: #757575;
   text-decoration: underline;
   font-size: 12px;
