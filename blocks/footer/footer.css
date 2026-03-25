@@ -66,14 +66,10 @@ footer .footer > div > .section:last-child ul {
   flex-wrap: wrap;
 }
 
-@media (width >= 900px) {
-  footer .footer > div > .section {
-    padding: 40px 32px 24px;
-  }
-
+@media (width >= 600px) {
   /* columns layout for footer links */
   footer .footer > div > .section:first-child .default-content-wrapper {
-    columns: 3;
+    columns: 2;
     column-gap: 40px;
   }
 
@@ -84,5 +80,23 @@ footer .footer > div > .section:last-child ul {
   footer .footer > div > .section:first-child .default-content-wrapper h2,
   footer .footer > div > .section:first-child .default-content-wrapper ul {
     break-inside: avoid;
+  }
+}
+
+@media (width >= 900px) {
+  footer .footer > div > .section {
+    padding: 40px 32px 24px;
+  }
+
+  footer .footer > div > .section:first-child .default-content-wrapper {
+    columns: 3;
+    column-gap: 40px;
+  }
+}
+
+@media (width >= 1200px) {
+  footer .footer > div > .section:first-child .default-content-wrapper {
+    columns: 5;
+    column-gap: 32px;
   }
 }

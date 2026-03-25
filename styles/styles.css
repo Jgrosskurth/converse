@@ -71,7 +71,11 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: calc(var(--nav-height) + 36px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--background-color);
 }
 
 header .header,

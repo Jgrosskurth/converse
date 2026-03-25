@@ -168,4 +168,44 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // promo bar above navigation
+  const promoBar = document.createElement('div');
+  promoBar.className = 'promo-bar';
+  const promos = [
+    'Free Shipping on Orders $75+ | <a href="https://www.converse.com/shop/new-arrivals">Shop New Arrivals</a>',
+    'Members Get 25% Off Select Styles | <a href="https://www.converse.com/#">Join Now</a>',
+    'Easy Returns Within 30 Days | <a href="https://www.converse.com/c/returns">Learn More</a>',
+  ];
+  promoBar.innerHTML = `<div class="promo-bar-content">${promos.map((p, i) => `<p class="promo-bar-item${i === 0 ? ' active' : ''}">${p}</p>`).join('')}</div>`;
+  block.prepend(promoBar);
+
+  // auto-rotate promo messages
+  let promoIndex = 0;
+  const promoItems = promoBar.querySelectorAll('.promo-bar-item');
+  if (promoItems.length > 1) {
+    setInterval(() => {
+      promoItems[promoIndex].classList.remove('active');
+      promoIndex = (promoIndex + 1) % promoItems.length;
+      promoItems[promoIndex].classList.add('active');
+    }, 5000);
+  }
+
+  // replace nav-tools text with SVG icons
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const toolLinks = navTools.querySelectorAll('a');
+    const icons = {
+      Search: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>',
+      Favorites: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+      Cart: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
+    };
+    toolLinks.forEach((link) => {
+      const text = link.textContent.trim();
+      if (icons[text]) {
+        link.innerHTML = `${icons[text]}<span class="sr-only">${text}</span>`;
+        link.setAttribute('aria-label', text);
+      }
+    });
+  }
 }
