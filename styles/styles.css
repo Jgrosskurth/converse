@@ -315,38 +315,40 @@ main .section.highlight {
 }
 
 main .section.dark {
-  background-color: #000;
   color: #fff;
   margin: 0;
-  padding: 40px 0;
+  padding: 0;
   position: relative;
   overflow: hidden;
+  background: none;
 }
 
 main .section.dark a:any-link {
   color: #fff;
 }
 
-main .section.dark .button-wrapper a.button:any-link {
-  border-color: #fff;
-  color: #fff;
-}
-
+/* wrapper: image fills background, text stacked centered on top */
 main .section.dark > .default-content-wrapper {
   position: relative;
-  z-index: 1;
   text-align: center;
-  max-width: 700px;
-  padding: 40px 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  justify-content: center;
 }
 
-/* use the first image as a full-bleed background */
+/* background image — fills entire section */
 main .section.dark > .default-content-wrapper > p:first-child {
   position: absolute;
   inset: 0;
   z-index: 0;
   margin: 0;
   padding: 0;
+  line-height: 0;
 }
 
 main .section.dark > .default-content-wrapper > p:first-child img {
@@ -355,7 +357,7 @@ main .section.dark > .default-content-wrapper > p:first-child img {
   object-fit: cover;
 }
 
-/* "NEVER MISS A BEAT" heading injected by scripts.js */
+/* "NEVER MISS A BEAT" heading */
 main .section.dark .signup-heading {
   position: relative;
   z-index: 1;
@@ -363,10 +365,11 @@ main .section.dark .signup-heading {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   color: #fff;
 }
 
+/* subtext — proper case */
 /* stylelint-disable-next-line no-descending-specificity */
 main .section.dark > .default-content-wrapper p {
   position: relative;
@@ -375,34 +378,39 @@ main .section.dark > .default-content-wrapper p {
   line-height: 1.8;
   font-weight: 400;
   margin: 0 0 8px;
+  text-transform: none;
+  max-width: 560px;
+  padding: 0 24px;
 }
 
 main .section.dark > .default-content-wrapper p a:any-link {
   text-decoration: underline;
 }
 
+/* Sign Up button — white bg, black text, centered */
 main .section.dark > .default-content-wrapper ul {
   position: relative;
   z-index: 1;
   list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
+  padding: 0 0 40px;
+  margin: 16px 0 0;
 }
 
 main .section.dark > .default-content-wrapper ul a:any-link {
   display: inline-block;
-  border: 2px solid #fff;
   padding: 12px 40px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700;
   text-decoration: none;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  border: none;
 }
 
 main .section.dark > .default-content-wrapper ul a:hover {
-  background-color: #fff;
+  background-color: #e5e5e5;
   color: #000;
 }
 
