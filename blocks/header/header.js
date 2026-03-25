@@ -121,7 +121,7 @@ export default async function decorate(block) {
   // inline fallback when DA content is not available
   if (!fragment) {
     fragment = await createFragment(`<div>
-  <p><a href="/"><svg class="converse-star" viewBox="0 0 39 33" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 0 39 16.5 19.5 33 0 16.5Z" fill="currentColor"/><path d="m19.5 7 2.1 6.5h6.8l-5.5 4 2.1 6.5-5.5-4-5.5 4 2.1-6.5-5.5-4h6.8Z" fill="#fff"/></svg><span class="converse-wordmark">CONVERSE</span></a></p>
+  <p><a href="/"><img src="/icons/logo.png" alt="Converse" class="converse-logo" width="200" height="30"></a></p>
 </div>
 <div>
   <ul>
@@ -158,6 +158,19 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  }
+
+  // replace brand text/SVG with logo PNG image
+  const brandAnchor = navBrand.querySelector('a');
+  if (brandAnchor && !brandAnchor.querySelector('img.converse-logo')) {
+    const logoImg = document.createElement('img');
+    logoImg.src = '/icons/logo.png';
+    logoImg.alt = 'Converse';
+    logoImg.className = 'converse-logo';
+    logoImg.width = 200;
+    logoImg.height = 30;
+    brandAnchor.textContent = '';
+    brandAnchor.appendChild(logoImg);
   }
 
   const navSections = nav.querySelector('.nav-sections');

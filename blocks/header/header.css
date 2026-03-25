@@ -280,20 +280,8 @@ header .nav-brand a {
   gap: 8px;
 }
 
-header .nav-brand .converse-star {
-  width: 24px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-header .nav-brand .converse-wordmark {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
 header nav .nav-brand img {
-  width: 128px;
+  width: 160px;
   height: auto;
 }
 
