@@ -17,6 +17,7 @@ header .top-bar-inner {
   width: 100%;
   max-width: 1440px;
   padding: 0 24px;
+  height: 100%;
 }
 
 header .top-bar-left {
@@ -270,6 +271,25 @@ header .nav-brand {
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-brand a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header .nav-brand .converse-star {
+  width: 24px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+header .nav-brand .converse-wordmark {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
 }
 
 header nav .nav-brand img {

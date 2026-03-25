@@ -114,6 +114,23 @@ function decorateButtons(main) {
 }
 
 /**
+ * Injects "NEVER MISS A BEAT" heading into the dark sign-up section.
+ * @param {Element} main The main element
+ */
+function decorateDarkSignup(main) {
+  const darkSection = main.querySelector('.section.dark');
+  if (!darkSection) return;
+  const wrapper = darkSection.querySelector('.default-content-wrapper');
+  if (!wrapper) return;
+  const imgP = wrapper.querySelector(':scope > p:first-child:has(img)');
+  if (!imgP) return;
+  const heading = document.createElement('h2');
+  heading.className = 'signup-heading';
+  heading.textContent = 'NEVER MISS A BEAT';
+  imgP.after(heading);
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -124,6 +141,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateDarkSignup(main);
 }
 
 /**

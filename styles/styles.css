@@ -337,13 +337,44 @@ main .section.dark > .default-content-wrapper {
   padding: 40px 24px;
 }
 
+/* Converse star icon above "NEVER MISS A BEAT" */
+main .section.dark > .default-content-wrapper::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 34px;
+  margin: 0 auto 16px;
+  background-color: #fff;
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 39 33' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.5 0 39 16.5 19.5 33 0 16.5Z'/%3E%3Cpath d='m19.5 7 2.1 6.5h6.8l-5.5 4 2.1 6.5-5.5-4-5.5 4 2.1-6.5-5.5-4h6.8Z' fill='%23000'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 39 33' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.5 0 39 16.5 19.5 33 0 16.5Z'/%3E%3Cpath d='m19.5 7 2.1 6.5h6.8l-5.5 4 2.1 6.5-5.5-4-5.5 4 2.1-6.5-5.5-4h6.8Z' fill='%23000'/%3E%3C/svg%3E");
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* "NEVER MISS A BEAT" heading injected by scripts.js */
+main .section.dark .signup-heading {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+  color: #fff;
+}
+
 main .section.dark > .default-content-wrapper > p:first-child {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 main .section.dark > .default-content-wrapper > p:first-child img {
-  max-width: 80px;
-  height: auto;
+  display: none;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -381,13 +412,13 @@ main .section.dark > .default-content-wrapper ul a:hover {
   color: #000;
 }
 
-/* Explore Converse / SEO links section — bordered tags row */
+/* Explore Converse / SEO links section — bordered grid */
 main > .section:not(.dark, .light) > .default-content-wrapper > p:first-child:not(:has(img)) {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   margin-top: 32px;
 }
 
@@ -395,26 +426,30 @@ main > .section:not(.dark, .light) > .default-content-wrapper > ul {
   list-style: none;
   padding: 0;
   margin: 0 0 32px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
 }
 
 main > .section:not(.dark, .light) > .default-content-wrapper > ul li {
-  display: inline-block;
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 main > .section:not(.dark, .light) > .default-content-wrapper > ul a:any-link {
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 8px 16px;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  font-size: 13px;
+  font-weight: 600;
   color: #000;
   text-decoration: none;
-  white-space: nowrap;
+  text-align: center;
+  min-height: 48px;
 }
 
 main > .section:not(.dark, .light) > .default-content-wrapper > ul a:hover {
-  border-color: #000;
+  text-decoration: underline;
 }
