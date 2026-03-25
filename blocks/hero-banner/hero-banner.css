@@ -26,6 +26,10 @@
   color: var(--text-color);
 }
 
+.hero-banner a:any-link {
+  color: var(--background-color);
+}
+
 .hero-banner picture {
   position: absolute;
   z-index: -1;

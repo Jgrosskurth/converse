@@ -1,1 +1,38 @@
-/* add global styles that can be loaded post LCP here */
+/* Link list section - horizontal navigation strip */
+main > .section > .default-content-wrapper:has(ul) {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  border-top: 1px solid #e5e5e5;
+}
+
+main > .section > .default-content-wrapper:has(ul) > p {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+main > .section > .default-content-wrapper:has(ul) ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 0;
+  margin: 0;
+}
+
+main > .section > .default-content-wrapper:has(ul) ul li {
+  font-size: 12px;
+}
+
+main > .section > .default-content-wrapper:has(ul) ul li a {
+  color: #757575;
+  text-decoration: underline;
+}
+
+/* Button links should not be underlined */
+a.button:any-link {
+  text-decoration: none;
+}

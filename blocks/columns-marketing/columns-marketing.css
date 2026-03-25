@@ -1,6 +1,7 @@
 .columns-marketing > div {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .columns-marketing img {
@@ -9,6 +10,7 @@
 
 .columns-marketing > div > div {
   order: 1;
+  padding: 20px 16px;
 }
 
 .columns-marketing > div > .columns-marketing-img-col {
@@ -19,9 +21,35 @@
   display: block;
 }
 
+.columns-marketing h3 {
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.columns-marketing p {
+  font-size: 12px;
+  color: #757575;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.columns-marketing a:any-link {
+  font-size: 12px;
+  color: #757575;
+  text-decoration: underline;
+}
+
 @media (width >= 900px) {
+  .columns-marketing {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 40px;
+  }
+
   .columns-marketing > div {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: unset;
     gap: 24px;
   }
@@ -29,5 +57,11 @@
   .columns-marketing > div > div {
     flex: 1;
     order: unset;
+    border-right: 1px solid #e5e5e5;
+    padding: 0 24px;
+  }
+
+  .columns-marketing > div > div:last-child {
+    border-right: none;
   }
 }

@@ -19,11 +19,27 @@
   display: block;
 }
 
+/* eyebrow/category text above and below headings */
+.columns-featured > div > div > p:not(:has(a), :has(img)) {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.columns-featured h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 800;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 @media (width >= 900px) {
   .columns-featured > div {
-    align-items: center;
+    align-items: stretch;
     flex-direction: unset;
-    gap: 24px;
+    gap: 0;
   }
 
   .columns-featured > div > div {

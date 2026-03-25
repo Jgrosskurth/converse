@@ -61,6 +61,11 @@
   width: var(--slide-content-width, auto);
 }
 
+.carousel-categories .carousel-categories-slide .carousel-categories-slide-content a:any-link {
+  color: white;
+  text-decoration: underline;
+}
+
 .carousel-categories .carousel-categories-slide-indicators {
   display: flex;
   flex-wrap: wrap;
