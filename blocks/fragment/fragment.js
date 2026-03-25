@@ -45,6 +45,19 @@ export async function loadFragment(path, fallbackUrl) {
   return null;
 }
 
+/**
+ * Creates a fragment from an HTML string (for inline fallbacks).
+ * @param {string} html The HTML content
+ * @returns {HTMLElement} The root element of the fragment
+ */
+export async function createFragment(html) {
+  const main = document.createElement('main');
+  main.innerHTML = html;
+  decorateMain(main);
+  await loadSections(main);
+  return main;
+}
+
 export default async function decorate(block) {
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();

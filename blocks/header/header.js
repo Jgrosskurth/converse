@@ -1,5 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
+import { loadFragment, createFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -116,7 +116,30 @@ export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath, `/content${navPath}.plain.html`);
+  let fragment = await loadFragment(navPath, `/content${navPath}.plain.html`);
+
+  // inline fallback when DA content is not available
+  if (!fragment) {
+    fragment = await createFragment(`<div>
+  <p><a href="/">CONVERSE</a></p>
+</div>
+<div>
+  <ul>
+    <li><a href="https://www.converse.com/shop/new-arrivals">New &amp; Featured</a></li>
+    <li><a href="https://www.converse.com/shop/womens">Women</a></li>
+    <li><a href="https://www.converse.com/shop/mens">Men</a></li>
+    <li><a href="https://www.converse.com/shop/kids-shoes">Kids</a></li>
+    <li><a href="https://www.converse.com/c/custom">Custom</a></li>
+    <li><a href="https://www.converse.com/shop/launch">Launch</a></li>
+    <li><a href="https://www.converse.com/shop/sale">Sale</a></li>
+  </ul>
+</div>
+<div>
+  <p><a href="https://www.converse.com/search">Search</a></p>
+  <p><a href="https://www.converse.com/favorites">Favorites</a></p>
+  <p><a href="https://www.converse.com/cart">Cart</a></p>
+</div>`);
+  }
 
   // decorate nav DOM
   block.textContent = '';
