@@ -131,6 +131,31 @@ function decorateDarkSignup(main) {
 }
 
 /**
+ * Decorates the Explore Converse SEO links section.
+ * Renames heading and adds arrow icons to each link.
+ * @param {Element} main The main element
+ */
+function decorateExploreConverse(main) {
+  const sections = main.querySelectorAll('.section:not(.dark):not(.light) .default-content-wrapper');
+  sections.forEach((wrapper) => {
+    const heading = wrapper.querySelector(':scope > p:first-child:not(:has(img))');
+    if (!heading || !wrapper.querySelector(':scope > ul')) return;
+    // Only target the SEO links section with many list items, skip footer/copyright sections
+    const listItems = wrapper.querySelectorAll('ul li');
+    if (listItems.length < 5) return;
+    heading.textContent = 'Explore Converse';
+    wrapper.classList.add('explore-converse');
+    wrapper.querySelectorAll('ul a').forEach((a) => {
+      const arrow = document.createElement('span');
+      arrow.className = 'explore-arrow';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '→';
+      a.prepend(arrow);
+    });
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -142,6 +167,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateButtons(main);
   decorateDarkSignup(main);
+  decorateExploreConverse(main);
 }
 
 /**
