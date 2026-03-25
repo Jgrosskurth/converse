@@ -22,36 +22,41 @@
 }
 
 .columns-marketing h3 {
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 12px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-bottom: 8px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .columns-marketing p {
   font-size: 12px;
   color: #757575;
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.5;
+  margin: 0 0 4px;
 }
 
 .columns-marketing a:any-link {
   font-size: 12px;
-  color: #757575;
+  color: #000;
   text-decoration: underline;
+  font-weight: 600;
 }
 
 @media (width >= 900px) {
   .columns-marketing {
     border-top: 1px solid #e5e5e5;
     padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .columns-marketing > div {
     align-items: flex-start;
     flex-direction: unset;
-    gap: 24px;
+    gap: 0;
   }
 
   .columns-marketing > div > div {
