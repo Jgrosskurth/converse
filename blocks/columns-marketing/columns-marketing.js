@@ -1,7 +1,7 @@
 const ICONS = {
-  'Fast, Free Shipping': '/icons/icon-shipping.png',
-  'Worry-Free Returns': '/icons/icon-returns.png',
-  'Converse Gift Cards': '/icons/icon-giftcards.png',
+  'Fast, Free Shipping': '/icons/icon-shipping.svg',
+  'Worry-Free Returns': '/icons/icon-returns.svg',
+  'Converse Gift Cards': '/icons/icon-giftcards.svg',
 };
 
 const SOCIAL_ICONS = {
