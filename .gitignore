@@ -15,3 +15,5 @@ tools/da-library-setup.js
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+content/images/
+content/media_*
