@@ -29,7 +29,7 @@
   justify-content: flex-end;
   position: relative;
   width: 100%;
-  min-height: min(50vw, calc(100dvh - var(--header-height)));
+  min-height: 400px;
 }
 
 .carousel-categories .carousel-categories-slide:has(.carousel-categories-slide-content[data-align='center']) {
@@ -55,21 +55,21 @@
 .carousel-categories .carousel-categories-slide .carousel-categories-slide-content {
   z-index: 1;
   margin: 24px;
-  padding: 20px 24px;
-  color: white;
-  background-color: rgb(0 0 0 / 70%);
+  padding: 0;
+  color: #000;
+  background-color: transparent;
   position: relative;
   width: auto;
-  max-width: 300px;
+  max-width: none;
 }
 
 .carousel-categories .carousel-categories-slide .carousel-categories-slide-content h2 {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 40px;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   margin: 0 0 8px;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .carousel-categories .carousel-categories-slide .carousel-categories-slide-content p {
@@ -77,7 +77,7 @@
 }
 
 .carousel-categories .carousel-categories-slide .carousel-categories-slide-content a:any-link {
-  color: white;
+  color: #000;
   text-decoration: underline;
   font-size: 12px;
   font-weight: 600;
@@ -174,7 +174,7 @@
   }
 
   .carousel-categories .carousel-categories-slide .carousel-categories-slide-content h2 {
-    font-size: 36px;
+    font-size: 72px;
   }
 
   .carousel-categories .carousel-categories-slide .carousel-categories-slide-content[data-align='justify'] {

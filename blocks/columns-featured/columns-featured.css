@@ -74,7 +74,7 @@
 
   .columns-featured > div > div {
     flex: 1;
-    min-height: 500px;
+    min-height: 462px;
     padding: 24px;
     display: flex;
     flex-direction: column;

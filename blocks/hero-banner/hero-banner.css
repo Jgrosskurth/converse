@@ -3,15 +3,16 @@
   padding: 0;
 }
 
-/* hero: image fills top, text sits in white band below */
+/* hero: image fills background, text overlays at bottom-left */
 .hero-banner {
-  position: relative;
-}
-
-.hero-banner > div:first-child {
   position: relative;
   min-height: 400px;
   overflow: hidden;
+}
+
+.hero-banner > div:first-child {
+  position: absolute;
+  inset: 0;
 }
 
 .hero-banner > div:first-child picture {
@@ -25,17 +26,20 @@
   object-fit: cover;
 }
 
-/* text band below the image */
+/* text overlay on image */
 .hero-banner > div:last-child {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  padding: 20px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: transparent;
+  color: #fff;
+  padding: 24px;
 }
 
 .hero-banner > div:last-child > div:first-child {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   max-width: 500px;
 }
@@ -46,27 +50,27 @@
 
 .hero-banner a:any-link {
   display: inline-block;
-  border: 2px solid #000;
+  border: 2px solid #fff;
   padding: 10px 28px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
-  color: #000;
-}
-
-.hero-banner a:hover {
-  background-color: #000;
   color: #fff;
 }
 
+.hero-banner a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
 @media (width >= 900px) {
-  .hero-banner > div:first-child {
-    min-height: 560px;
+  .hero-banner {
+    min-height: 720px;
   }
 
   .hero-banner > div:last-child {
-    padding: 20px 32px;
+    padding: 40px;
   }
 }
