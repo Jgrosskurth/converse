@@ -349,6 +349,7 @@ main .section.dark > .default-content-wrapper > p:first-child {
   margin: 0;
   padding: 0;
   line-height: 0;
+  max-width: none;
 }
 
 main .section.dark > .default-content-wrapper > p:first-child img {
