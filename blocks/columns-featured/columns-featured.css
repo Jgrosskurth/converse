@@ -33,12 +33,19 @@
   margin: 0;
 }
 
-/* text content overlays the image */
+/* CTA buttons row */
+.columns-featured-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* single CTA fallback */
 .columns-featured > div > div > p:has(a) {
   position: relative;
   z-index: 1;
-  display: inline-block;
-  margin-right: 12px;
 }
 
 /* eyebrow/category text */
@@ -47,7 +54,7 @@
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 4px;
   margin-top: 4px;
   position: relative;
@@ -67,14 +74,19 @@
   margin-top: 8px;
 }
 
-/* Customize CTA gradient text */
+/* Customize CTA — white bg, gradient text via inner span */
 .columns-featured > div > div:first-child a[href*="custom"] {
+  border-color: #000;
+  background-color: #fff;
+}
+
+.columns-featured .gradient-text {
   background: linear-gradient(90deg, #2563eb, #dc2626);
+
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  border-color: #000;
 }
 
 .columns-featured a:hover {
@@ -123,24 +135,25 @@
     color: #000;
   }
 
+  .columns-featured-ctas {
+    z-index: 1;
+  }
+
   /* Customize CTA gradient on desktop */
   .columns-featured > div > div:first-child a[href*="custom"] {
-    background: #fff;
-    background-image: linear-gradient(90deg, #2563eb, #dc2626);
-    /* stylelint-disable-next-line property-no-vendor-prefix */
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-color: #fff;
     border-color: #fff;
   }
 
   .columns-featured a:hover {
     background-color: #000;
     color: #fff;
+    border-color: #000;
+  }
+
+  .columns-featured a:hover .gradient-text {
+    background: none;
     -webkit-text-fill-color: #fff;
-    /* stylelint-disable-next-line property-no-vendor-prefix */
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
   }
 
   .columns-featured > div > div > p:has(img) {

@@ -39,9 +39,9 @@
 }
 
 .hero-banner > div:last-child > div:first-child {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 380px;
 }
 
 .hero-banner > div:last-child > div:last-child {

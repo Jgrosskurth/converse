@@ -52,7 +52,7 @@
 .carousel-categories-label {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
@@ -75,16 +75,20 @@
   -webkit-text-stroke: 0;
 }
 
-/* Arrow only visible on active */
+/* Arrow before text — same size as font */
 .carousel-categories-arrow {
   display: inline-block;
-  width: 24px;
-  height: 24px;
-  position: relative;
   flex-shrink: 0;
-  margin-left: 16px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  font-size: inherit;
+  line-height: 1;
+  color: #000;
+  -webkit-text-stroke: 0;
+}
+
+.carousel-categories-arrow::after {
+  content: '→';
 }
 
 .carousel-categories-label.active .carousel-categories-arrow,
@@ -92,15 +96,8 @@
   opacity: 1;
 }
 
-.carousel-categories-arrow::after {
-  content: '→';
-  font-size: 24px;
-  color: #000;
-  -webkit-text-stroke: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.carousel-categories-text {
+  flex: 1;
 }
 
 /* Desktop: side-by-side 50/50 split */
@@ -124,11 +121,8 @@
   .carousel-categories-label {
     font-size: 48px;
     padding: 20px 0;
+    gap: 16px;
     -webkit-text-stroke: 2px #000;
-  }
-
-  .carousel-categories-arrow::after {
-    font-size: 32px;
   }
 }
 

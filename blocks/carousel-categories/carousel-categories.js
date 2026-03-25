@@ -69,14 +69,18 @@ export default async function decorate(block) {
 
     const heading = textCol.querySelector('h2');
     const link = textCol.querySelector('a');
-    if (heading) label.textContent = heading.textContent;
-    if (link) label.href = link.href;
 
-    // Arrow icon
+    // Arrow icon — prepended before text
     const arrow = document.createElement('span');
     arrow.classList.add('carousel-categories-arrow');
     arrow.setAttribute('aria-hidden', 'true');
     label.append(arrow);
+
+    const text = document.createElement('span');
+    text.className = 'carousel-categories-text';
+    if (heading) text.textContent = heading.textContent;
+    label.append(text);
+    if (link) label.href = link.href;
 
     labelPanel.append(label);
 

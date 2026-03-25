@@ -1,16 +1,16 @@
-/* utility bar — topmost black bar */
-header .util-bar {
+/* top bar — single black row: locale | promo | help/signin */
+header .top-bar {
   background-color: #000;
   color: #fff;
   font-size: 10px;
   letter-spacing: 0.04em;
-  height: 32px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-header .util-bar-inner {
+header .top-bar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,35 +19,68 @@ header .util-bar-inner {
   padding: 0 24px;
 }
 
-header .util-bar-left {
+header .top-bar-left {
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-shrink: 0;
 }
 
-header .util-flag {
+header .top-bar-flag {
   font-size: 14px;
   line-height: 1;
 }
 
-header .util-locale,
-header .util-lang {
+header .top-bar-locale,
+header .top-bar-lang {
   font-weight: 600;
   text-transform: uppercase;
 }
 
-header .util-sep {
+header .top-bar-sep {
   margin: 0 2px;
   opacity: 0.5;
 }
 
-header .util-bar-right {
+header .top-bar-center {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+header .top-bar-promo {
+  position: absolute;
+  margin: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+header .top-bar-promo.active {
+  opacity: 1;
+}
+
+header .top-bar-center a:any-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+header .top-bar-right {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
-header .util-link {
+header .top-bar-link {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
@@ -57,55 +90,13 @@ header .util-link {
   gap: 4px;
 }
 
-header .util-link:hover {
+header .top-bar-link:hover {
   text-decoration: underline;
 }
 
-header .util-signin svg {
+header .top-bar-signin svg {
   display: inline-block;
   vertical-align: middle;
-}
-
-/* promo bar */
-header .promo-bar {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  overflow: hidden;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-header .promo-bar-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-header .promo-bar-item {
-  position: absolute;
-  margin: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-header .promo-bar-item.active {
-  opacity: 1;
-}
-
-header .promo-bar a:any-link {
-  color: #fff;
-  text-decoration: underline;
 }
 
 /* screen reader only utility */
