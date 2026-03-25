@@ -53,6 +53,25 @@
   font-weight: 600;
 }
 
+.columns-marketing-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-marketing-social a:any-link {
+  display: flex;
+  color: #000;
+  text-decoration: none;
+}
+
+.columns-marketing-social svg {
+  width: 24px;
+  height: 24px;
+}
+
 @media (width >= 900px) {
   .columns-marketing {
     border-top: 1px solid #e5e5e5;
