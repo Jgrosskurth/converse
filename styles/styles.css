@@ -28,11 +28,11 @@
   --body-font-size-s: 13px;
   --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 36px;
-  --heading-font-size-l: 28px;
-  --heading-font-size-m: 22px;
+  /* heading sizes — fluid to match original Converse type scale */
+  --heading-font-size-xxl: clamp(36px, 5vw, 72px);
+  --heading-font-size-xl: clamp(28px, 4vw, 48px);
+  --heading-font-size-l: clamp(22px, 3vw, 28px);
+  --heading-font-size-m: clamp(18px, 2.5vw, 22px);
   --heading-font-size-s: 18px;
   --heading-font-size-xs: 16px;
 
@@ -53,14 +53,6 @@
     --body-font-size-m: 14px;
     --body-font-size-s: 13px;
     --body-font-size-xs: 12px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 48px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 18px;
-    --heading-font-size-xs: 16px;
   }
 }
 
@@ -71,7 +63,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.15;
+  line-height: 1.5;
 }
 
 body.appear {
@@ -101,8 +93,8 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.1;
   scroll-margin: 40px;
 }
 
@@ -337,7 +329,7 @@ main .section.dark .button-wrapper a.button:any-link {
 /* email signup dark section */
 main .section.dark > .default-content-wrapper {
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   padding: 40px 24px;
 }
 
@@ -352,8 +344,8 @@ main .section.dark > .default-content-wrapper > p:first-child img {
 
 /* stylelint-disable-next-line no-descending-specificity */
 main .section.dark > .default-content-wrapper p {
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.8;
   font-weight: 400;
   margin: 0 0 8px;
 }
@@ -371,10 +363,10 @@ main .section.dark > .default-content-wrapper ul {
 main .section.dark > .default-content-wrapper ul a:any-link {
   display: inline-block;
   border: 2px solid #fff;
-  padding: 10px 32px;
+  padding: 12px 40px;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   font-weight: 700;
   text-decoration: none;
   color: #fff;

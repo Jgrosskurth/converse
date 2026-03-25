@@ -6,7 +6,7 @@
 /* hero editorial: image fills background, text overlays at bottom-left */
 .hero-editorial {
   position: relative;
-  min-height: 300px;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -33,14 +33,14 @@
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: transparent;
+  background: linear-gradient(to top, rgb(0 0 0 / 40%) 0%, transparent 100%);
   color: #fff;
   padding: 24px;
 }
 
 .hero-editorial > div:last-child > div:first-child {
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.8;
   max-width: 500px;
 }
 
@@ -51,11 +51,11 @@
 .hero-editorial a:any-link {
   display: inline-block;
   border: 2px solid #fff;
-  padding: 10px 28px;
+  padding: 12px 40px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-decoration: none;
   color: #fff;
 }
@@ -67,7 +67,7 @@
 
 @media (width >= 900px) {
   .hero-editorial {
-    min-height: 462px;
+    min-height: 540px;
   }
 
   .hero-editorial > div:last-child {
