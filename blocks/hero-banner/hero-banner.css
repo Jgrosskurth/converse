@@ -6,7 +6,10 @@
 .hero-banner {
   position: relative;
   padding: 40px 24px;
-  min-height: 300px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .hero-banner h1,
@@ -22,12 +25,24 @@
   color: var(--background-color);
 }
 
+.hero-banner p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 600px;
+}
+
 .hero-banner.no-image * {
   color: var(--text-color);
 }
 
 .hero-banner a:any-link {
   color: var(--background-color);
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .hero-banner picture {
@@ -47,5 +62,6 @@
 @media (width >= 900px) {
   .hero-banner {
     padding: 40px 32px;
+    min-height: 500px;
   }
 }

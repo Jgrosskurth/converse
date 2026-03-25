@@ -3,29 +3,15 @@
   flex-direction: column;
 }
 
+.columns-featured > div > div {
+  position: relative;
+  overflow: hidden;
+}
+
 .columns-featured img {
   width: 100%;
-}
-
-.columns-featured > div > div {
-  order: 1;
-}
-
-.columns-featured > div > .columns-featured-img-col {
-  order: 0;
-}
-
-.columns-featured > div > .columns-featured-img-col img {
+  height: auto;
   display: block;
-}
-
-/* eyebrow/category text above and below headings */
-.columns-featured > div > div > p:not(:has(a), :has(img)) {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin-bottom: 4px;
 }
 
 .columns-featured h2 {
@@ -33,6 +19,39 @@
   font-weight: 800;
   margin-top: 4px;
   margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+/* image fills the card background */
+.columns-featured > div > div > p:has(img) {
+  margin: 0;
+}
+
+/* text content overlays the image */
+.columns-featured > div > div > p:has(a) {
+  position: relative;
+  z-index: 1;
+}
+
+/* eyebrow/category text */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-featured > div > div > p:not(:has(a), :has(img)) {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.columns-featured a:any-link {
+  color: #000;
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 @media (width >= 900px) {
@@ -44,6 +63,27 @@
 
   .columns-featured > div > div {
     flex: 1;
-    order: unset;
+    min-height: 500px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .columns-featured > div > div > p:has(img) {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .columns-featured > div > div > p:has(img) picture {
+    width: 100%;
+    height: 100%;
+  }
+
+  .columns-featured > div > div > p:has(img) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
