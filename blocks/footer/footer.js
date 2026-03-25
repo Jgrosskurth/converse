@@ -72,5 +72,24 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  // wrap each h2 + ul pair into a column div for grid layout
+  const linksSection = footer.querySelector('.section:first-child .default-content-wrapper');
+  if (linksSection) {
+    const groups = [];
+    let current = null;
+    [...linksSection.children].forEach((child) => {
+      if (child.tagName === 'H2') {
+        current = document.createElement('div');
+        current.className = 'footer-col';
+        current.append(child);
+        groups.push(current);
+      } else if (current) {
+        current.append(child);
+      }
+    });
+    linksSection.textContent = '';
+    groups.forEach((g) => linksSection.append(g));
+  }
+
   block.append(footer);
 }

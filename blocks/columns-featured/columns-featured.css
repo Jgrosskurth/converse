@@ -1,5 +1,5 @@
 .columns-featured-container .columns-featured-wrapper {
-  max-width: unset;
+  max-width: 1440px;
   padding: 0;
 }
 
@@ -37,6 +37,8 @@
 .columns-featured > div > div > p:has(a) {
   position: relative;
   z-index: 1;
+  display: inline-block;
+  margin-right: 12px;
 }
 
 /* eyebrow/category text */
@@ -63,6 +65,16 @@
   text-decoration: none;
   color: #000;
   margin-top: 8px;
+}
+
+/* Customize CTA gradient text */
+.columns-featured > div > div:first-child a[href*="custom"] {
+  background: linear-gradient(90deg, #2563eb, #dc2626);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-color: #000;
 }
 
 .columns-featured a:hover {
@@ -107,12 +119,28 @@
 
   .columns-featured a:any-link {
     border-color: #fff;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
+  }
+
+  /* Customize CTA gradient on desktop */
+  .columns-featured > div > div:first-child a[href*="custom"] {
+    background: #fff;
+    background-image: linear-gradient(90deg, #2563eb, #dc2626);
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-color: #fff;
   }
 
   .columns-featured a:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
 
   .columns-featured > div > div > p:has(img) {

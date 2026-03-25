@@ -71,7 +71,7 @@ body.appear {
 }
 
 header {
-  height: calc(var(--nav-height) + 36px);
+  height: calc(var(--nav-height) + 36px + 32px);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -291,7 +291,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: auto;
   padding: 0 24px;
 }

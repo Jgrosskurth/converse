@@ -1,5 +1,5 @@
 .hero-banner-container .hero-banner-wrapper {
-  max-width: unset;
+  max-width: 1440px;
   padding: 0;
 }
 
@@ -39,9 +39,9 @@
 }
 
 .hero-banner > div:last-child > div:first-child {
-  font-size: 13px;
-  line-height: 1.8;
-  max-width: 500px;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
 }
 
 .hero-banner > div:last-child > div:last-child {
@@ -57,12 +57,14 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .hero-banner a:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
 }
 
 @media (width >= 900px) {

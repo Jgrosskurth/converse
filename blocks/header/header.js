@@ -192,6 +192,24 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 
+  // utility bar (top-most)
+  const utilBar = document.createElement('div');
+  utilBar.className = 'util-bar';
+  utilBar.innerHTML = `<div class="util-bar-inner">
+    <div class="util-bar-left">
+      <span class="util-flag">🇺🇸</span>
+      <span class="util-locale">US</span>
+      <span class="util-sep">|</span>
+      <span class="util-lang">EN</span>
+    </div>
+    <div class="util-bar-right">
+      <a href="https://www.converse.com/c/help" class="util-link">Help</a>
+      <a href="https://www.converse.com/signin" class="util-link util-signin">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Sign In
+      </a>
+    </div>
+  </div>`;
   // promo bar above navigation
   const promoBar = document.createElement('div');
   promoBar.className = 'promo-bar';
@@ -202,6 +220,7 @@ export default async function decorate(block) {
   ];
   promoBar.innerHTML = `<div class="promo-bar-content">${promos.map((p, i) => `<p class="promo-bar-item${i === 0 ? ' active' : ''}">${p}</p>`).join('')}</div>`;
   block.prepend(promoBar);
+  block.prepend(utilBar);
 
   // auto-rotate promo messages
   let promoIndex = 0;

@@ -1,3 +1,71 @@
+/* utility bar — topmost black bar */
+header .util-bar {
+  background-color: #000;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .util-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 24px;
+}
+
+header .util-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+header .util-flag {
+  font-size: 14px;
+  line-height: 1;
+}
+
+header .util-locale,
+header .util-lang {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+header .util-sep {
+  margin: 0 2px;
+  opacity: 0.5;
+}
+
+header .util-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header .util-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+header .util-link:hover {
+  text-decoration: underline;
+}
+
+header .util-signin svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* promo bar */
 header .promo-bar {
   background-color: #000;
